@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Intel — Baseball Card Investment Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0c0f;
+  --bg2: #111318;
+  --bg3: #1a1d24;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --gold: #c9a84c;
+  --gold2: #e8c96a;
+  --green: #2ecc8a;
+  --amber: #f0a84a;
+  --red: #e05555;
+  --blue: #5b9cf6;
+  --purple: #9b7fe8;
+  
+  /* Brightened text colors for readability */
+  --text: #f3f1eb;
+  --text2: #e3ddd2;
+  --text3: #c7c1b6;
+  
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.68; min-height: 100vh; padding-left: 260px; transition: padding-left 0.25s ease; }
+body.sidebar-collapsed { padding-left: 0; }
+
+a { color: inherit; text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold); }
+.player-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text3); transition: all 0.2s; cursor: pointer; font-weight: 500; }
+.player-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* SIDEBAR */
+nav {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 100;
+  width: 260px; padding: 1.5rem 1rem;
+  background: linear-gradient(180deg, rgba(201,168,76,0.08), transparent 18%), rgba(10,12,15,0.96);
+  backdrop-filter: blur(16px);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 1.5rem;
+  transition: transform 0.25s ease;
+}
+body.sidebar-collapsed nav { transform: translateX(-100%); }
+.sidebar-toggle {
+  position: fixed; top: 1rem; left: 276px; z-index: 140;
+  width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--border);
+  background: rgba(10,12,15,0.92); color: var(--text); cursor: pointer;
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  backdrop-filter: blur(16px); box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  transition: left 0.25s ease, transform 0.25s ease;
+}
+.sidebar-toggle:hover { border-color: rgba(201,168,76,0.35); }
+.sidebar-toggle span {
+  width: 18px; height: 2px; border-radius: 999px; background: currentColor; display: block;
+}
+body.sidebar-collapsed .sidebar-toggle { left: 1rem; }
+.top-search {
+  position: fixed; top: 1rem; left: 292px; right: 1rem; z-index: 135;
+  opacity: 1; pointer-events: auto; transform: translateY(0);
+  transition: left 0.25s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+body.sidebar-collapsed .top-search {
+  left: 4.5rem;
+}
+.nav-brand-wrap { padding: 0.25rem 0.4rem 0.75rem; border-bottom: 1px solid var(--border); }
+.nav-brand { font-family: var(--serif); font-size: 1.45rem; color: var(--gold); font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+.nav-brand span { color: var(--text3); font-weight: 400; font-size: 0.76rem; display: block; font-family: var(--sans); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 0.3rem; }
+.nav-links { display: flex; flex-direction: column; gap: 0.35rem; }
+.nav-section {
+  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--text3); padding: 0.9rem 0.65rem 0.25rem;
+}
+.nav-btn {
+  background: none; border: 1px solid transparent; color: var(--text2); font-family: var(--sans); font-size: 0.86rem;
+  padding: 10px 12px; border-radius: 10px; cursor: pointer; letter-spacing: 0.02em; transition: all 0.2s; white-space: normal;
+  text-align: left; width: 100%;
+}
+.nav-btn:hover { color: var(--text); background: var(--bg3); border-color: var(--border); }
+.nav-btn.active { color: var(--gold); background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.25); }
+.nav-helper {
+  margin-top: auto; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 0.9rem; color: var(--text2); font-size: 0.78rem; line-height: 1.6;
+}
+.nav-helper strong { color: var(--gold2); display: block; }
+.search-form { display: flex; gap: 0.55rem; flex-wrap: nowrap; align-items: center; }
+.search-input {
+  width: 100%; background: var(--bg2); color: var(--text); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 0.9rem 1rem; font-family: var(--sans); font-size: 0.95rem;
+}
+.search-input:focus { outline: none; border-color: rgba(201,168,76,0.4); box-shadow: 0 0 0 3px rgba(201,168,76,0.08); }
+.search-btn {
+  border: 1px solid rgba(201,168,76,0.28); background: rgba(201,168,76,0.08); color: var(--gold2);
+  border-radius: 10px; padding: 0.8rem 1rem; cursor: pointer; font-family: var(--mono); font-size: 0.76rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.search-btn:hover { background: rgba(201,168,76,0.14); }
+
+/* PAGES */
+.page { display: none; padding: 86px 0 60px; min-height: 100vh; }
+.page.active { display: block; }
+
+/* HERO SECTIONS */
+.page-hero { padding: 3rem 2rem 2rem; max-width: 1200px; margin: 0 auto; }
+.page-eyebrow {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
+}
+.page-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.1; color: var(--text); margin-bottom: 0.75rem; }
+.page-subtitle { color: var(--text2); max-width: 700px; font-size: 1.02rem; }
+
+/* CONTENT WRAPPER */
+.content { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+/* TIER SECTIONS */
+.tier-block { margin-bottom: 2.5rem; }
+.tier-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.tier-pill {
+  font-family: var(--mono); font-size: 0.68rem; padding: 3px 10px; border-radius: 4px;
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+}
+.tier-1-pill { background: rgba(201,168,76,0.15); color: var(--gold2); border: 1px solid rgba(201,168,76,0.3); }
+.tier-2-pill { background: rgba(46,204,138,0.12); color: var(--green); border: 1px solid rgba(46,204,138,0.25); }
+.tier-3-pill { background: rgba(240,168,74,0.12); color: var(--amber); border: 1px solid rgba(240,168,74,0.25); }
+.tier-4-pill { background: rgba(255,255,255,0.06); color: var(--text2); border: 1px solid var(--border); }
+.tier-title { font-family: var(--serif); font-size: 1.1rem; color: var(--text); }
+.tier-desc { font-size: 0.88rem; color: var(--text2); margin-left: auto; }
+
+/* TABLE */
+.tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+thead tr { background: var(--bg3); }
+th { padding: 11px 12px; text-align: left; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text2); font-weight: 500; white-space: nowrap; }
+td { padding: 12px 12px; border-top: 1px solid var(--border); color: var(--text); vertical-align: top; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.pname { font-weight: 500; font-size: 0.88rem; }
+.psub { color: var(--text2); font-size: 0.82rem; margin-top: 3px; line-height: 1.45; }
+.card-name { font-family: var(--mono); font-size: 0.8rem; color: var(--text2); }
+.price-now { font-family: var(--mono); font-size: 0.8rem; color: var(--gold); }
+.price-proj { font-family: var(--mono); font-size: 0.8rem; color: var(--green); }
+.war-val { font-family: var(--mono); font-size: 0.85rem; }
+
+/* BADGES */
+.badge { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 20px; white-space: nowrap; font-weight: 500; }
+.badge-lock { background: rgba(201,168,76,0.15); color: var(--gold2); }
+.badge-vlike { background: rgba(46,204,138,0.12); color: var(--green); }
+.badge-prob { background: rgba(240,168,74,0.12); color: var(--amber); }
+.badge-tbd { background: rgba(255,255,255,0.07); color: var(--text2); }
+.badge-low { background: rgba(46,204,138,0.12); color: var(--green); }
+.badge-med { background: rgba(240,168,74,0.12); color: var(--amber); }
+.badge-high { background: rgba(224,85,85,0.12); color: var(--red); }
+
+/* POP COLOR */
+.pop-hi { color: var(--red); font-family: var(--mono); font-size: 0.78rem; }
+.pop-med { color: var(--amber); font-family: var(--mono); font-size: 0.78rem; }
+.pop-lo { color: var(--green); font-family: var(--mono); font-size: 0.78rem; }
+
+/* ROI BAR */
+.bar-row { display: flex; align-items: center; gap: 8px; }
+.bar-track { flex: 1; height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; }
+.bar-label { font-family: var(--mono); font-size: 0.75rem; min-width: 36px; color: var(--text2); }
+
+/* SORT CONTROLS */
+.sort-row { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; align-items: center; }
+.sort-lbl { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+.sort-btn {
+  background: var(--bg3); border: 1px solid var(--border); color: var(--text2);
+  font-family: var(--sans); font-size: 0.78rem; padding: 5px 14px; border-radius: 6px;
+  cursor: pointer; transition: all 0.15s;
+}
+.sort-btn:hover { border-color: var(--border2); color: var(--text); }
+.sort-btn.active { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.4); color: var(--gold); }
+
+/* REASONING PAGE CARDS */
+.reason-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; }
+.rcard {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.25rem; transition: border-color 0.2s;
+}
+.rcard:hover { border-color: var(--border2); }
+.rcard-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+.rcard-name { font-family: var(--serif); font-size: 1.1rem; color: var(--text); }
+.rcard-tier { font-family: var(--mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+.rcard-stat { font-family: var(--mono); font-size: 0.75rem; color: var(--gold); }
+.rcard-body { color: var(--text2); font-size: 0.92rem; line-height: 1.75; }
+.rcard-body p { margin-bottom: 0.5rem; }
+.rcard-body p:last-child { margin-bottom: 0; }
+.rcard-divider { height: 1px; background: var(--border); margin: 0.75rem 0; }
+.rcard-comp { background: var(--bg3); border-radius: 6px; padding: 8px 10px; margin-top: 0.75rem; }
+.rcard-comp-label { font-family: var(--mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+.rcard-comp-val { font-size: 0.8rem; color: var(--gold2); }
+.risk-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.risk-tag { font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; background: rgba(255,255,255,0.06); color: var(--text2); }
+
+/* HOME PAGE */
+.home-hero { padding: 5rem 2rem 3rem; max-width: 1200px; margin: 0 auto; }
+.home-title { font-family: var(--serif); font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.5rem; }
+.home-title .accent { color: var(--gold); }
+.home-intro { color: var(--text2); font-size: 1rem; max-width: 580px; line-height: 1.8; margin-bottom: 2.5rem; }
+.hero-alert {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.22), rgba(46,204,138,0.16));
+  border: 1px solid rgba(201,168,76,0.28);
+  color: var(--text); border-radius: 999px; padding: 0.7rem 1.1rem; margin-bottom: 1.25rem;
+  font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.hero-alert strong { color: var(--gold2); }
+.home-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.nav-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.5rem; cursor: pointer; transition: all 0.2s;
+}
+.nav-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.nav-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.nav-card-title { font-family: var(--serif); font-size: 1.1rem; color: var(--text); margin-bottom: 0.4rem; }
+.nav-card-desc { color: var(--text2); font-size: 0.9rem; line-height: 1.65; }
+.disclaimer-box { background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.15); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 2rem; color: var(--text2); font-size: 0.8rem; line-height: 1.7; }
+.disclaimer-box strong { color: var(--gold); }
+.page-jump-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.page-jump-btn {
+  border: 1px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.06); color: var(--gold2);
+  border-radius: 999px; padding: 0.55rem 0.95rem; cursor: pointer; font-size: 0.76rem; font-family: var(--mono);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.page-jump-btn:hover { background: rgba(201,168,76,0.12); }
+
+/* SECTION LABEL */
+.sec-label {
+  display: flex; align-items: center; gap: 12px; margin: 2.5rem 0 1.25rem;
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3);
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* COMP TABLE */
+.comp-badge { display: inline-block; background: var(--bg3); border: 1px solid var(--border); font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; color: var(--text2); font-family: var(--mono); }
+
+/* STAT GRID */
+.stat-mini { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.stat-chip { background: var(--bg3); border-radius: 4px; padding: 2px 7px; font-family: var(--mono); font-size: 0.7rem; color: var(--text2); }
+.stat-chip span { color: var(--text); }
+
+/* MODAL / POPUP */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+  z-index: 1000; display: none; align-items: center; justify-content: center;
+  padding: 1rem; opacity: 0; transition: opacity 0.2s;
+}
+.modal-overlay.active { display: flex; opacity: 1; }
+.modal-content {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+  width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto;
+  position: relative; padding: 2.25rem 1.5rem 1.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.modal-close {
+  position: absolute; top: 0.75rem; right: 0.75rem;
+  background: var(--bg3); border: 1px solid var(--border); color: var(--text2);
+  width: 24px; height: 24px; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  font-size: 0.85rem; font-weight: bold;
+}
+.modal-close:hover { color: var(--text); border-color: var(--border2); }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  body { padding-left: 0; }
+  body.sidebar-collapsed { padding-left: 0; }
+  nav {
+    position: fixed; top: 0; bottom: 0; left: 0; width: 260px; padding: 1.5rem 1rem;
+    border-right: 1px solid var(--border); border-bottom: none; z-index: 200;
+    transform: translateX(0); transition: transform 0.25s ease;
+  }
+  body.sidebar-collapsed nav { transform: translateX(-100%); }
+  .sidebar-toggle { top: 1rem; left: 276px; right: auto; position: fixed; z-index: 210; }
+  body.sidebar-collapsed .sidebar-toggle { left: 1rem; right: auto; }
+  .top-search { top: 1rem; left: 4.5rem; right: 1rem; max-width: none; }
+  body.sidebar-collapsed .top-search {
+    top: 1rem; left: 4.5rem; right: 1rem;
+  }
+  .nav-links { display: flex; grid-template-columns: none; }
+  .nav-section { grid-column: auto; padding-top: 0.9rem; }
+}
+
+@media(max-width:700px){
+  .page-hero, .content { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .home-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .reason-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body class="sidebar-collapsed">
+
+<button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="false" onclick="toggleSidebar()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="top-search">
+  <form class="search-form" onsubmit="handleSearch(event, 'top-player-search')">
+    <input id="top-player-search" class="search-input" type="search" placeholder="Search for a player or prospect">
+    <button class="search-btn" type="submit">Search</button>
+  </form>
+</div>
+
+<nav>
+  <div class="nav-brand-wrap">
+    <div class="nav-brand">Diamond Intel<span>Card Investment Guide</span></div>
+  </div>
+  <div class="nav-links">
+    <div class="nav-section">Overview</div>
+    <button class="nav-btn active" data-page="home" onclick="showPage('home')">Home</button>
+    <button class="nav-btn" data-page="player-shop" onclick="showPage('player-shop')">Player Shop</button>
+    <div class="nav-section">Current Players</div>
+    <button class="nav-btn" data-page="current-tiers" onclick="showPage('current-tiers')">Tier Rankings</button>
+    <button class="nav-btn" data-page="current-composite" onclick="showPage('current-composite')">ROI / Composite Rankings</button>
+    <div class="nav-section">Prospects</div>
+    <button class="nav-btn" data-page="prospects-tiers" onclick="showPage('prospects-tiers')">Tier Rankings</button>
+    <button class="nav-btn" data-page="prospects-composite" onclick="showPage('prospects-composite')">ROI / Composite Rankings</button>
+    <div class="nav-section">Deep Analysis</div>
+    <button class="nav-btn" data-page="reasoning-current" onclick="showPage('reasoning-current')">Player Analysis</button>
+    <button class="nav-btn" data-page="reasoning-prospects" onclick="showPage('reasoning-prospects')">Prospect Analysis</button>
+    <button class="nav-btn" data-page="daily" onclick="showPage('daily')">Investment Info of The Day</button>
+    <button class="nav-btn" data-page="past-iiotds" onclick="showPage('past-iiotds')">Past IIOTDs</button>
+  </div>
+  <div class="nav-helper"><strong>New card investment info every day!</strong></div>
+</nav>
+
+<div class="modal-overlay" id="player-modal" onclick="closePlayerModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePlayerModal()">✕</button>
+    <div id="player-modal-body"></div>
+  </div>
+</div>
+
+<div id="page-home" class="page active">
+  <div class="home-hero">
+    <div class="hero-alert"><strong>New card investment info every day!</strong> Fresh rankings and ideas for collectors.</div>
+    <div class="page-eyebrow">Baseball Card Intelligence · April 2026</div>
+    <h1 class="home-title">The <span class="accent">smart</span><br>collector's edge.</h1>
+    <p class="home-intro">A comprehensive investment guide to baseball cards — from established Hall-of-Fame locks to the next generation of superstars still in the minors. All tiers, all risk levels, all ranked.</p>
+    <div class="home-cards">
+      <div class="nav-card" onclick="showPage('current-tiers')">
+        <div class="nav-card-icon">⚾</div>
+        <div class="nav-card-title">Current Player Tiers</div>
+        <div class="nav-card-desc">19 active and recently-retired players ranked across 4 investment tiers with PSA 10 populations, current values, and projected HOF prices.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('current-composite')">
+        <div class="nav-card-icon">CPC</div>
+        <div class="nav-card-title">Current Player Composite</div>
+        <div class="nav-card-desc">Sortable current-player ROI and composite rankings so viewers can compare upside, cost, and risk in one place.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('prospects-tiers')">
+        <div class="nav-card-icon">🔭</div>
+        <div class="nav-card-title">Prospect Tiers</div>
+        <div class="nav-card-desc">13 top MLB prospects ranked by ceiling, minor league stats, HOF comparables, and 1st Bowman Chrome Auto investment potential.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('prospects-composite')">
+        <div class="nav-card-icon">PC</div>
+        <div class="nav-card-title">Prospect Composite</div>
+        <div class="nav-card-desc">Separate sortable prospect rankings focused on entry price, projected range, risk, and estimated upside multiple.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('player-shop')">
+        <div class="nav-card-icon">🛒</div>
+        <div class="nav-card-title">Player Shop</div>
+        <div class="nav-card-desc">Quick affiliate links for featured player cards so visitors can jump straight from research to active listings.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('reasoning-current')">
+        <div class="nav-card-icon">📋</div>
+        <div class="nav-card-title">Player Analysis</div>
+        <div class="nav-card-desc">Deep-dive reasoning for every current player — HOF case, card market dynamics, risk factors, and best entry points explained.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('reasoning-prospects')">
+        <div class="nav-card-icon">🧬</div>
+        <div class="nav-card-title">Prospect Analysis</div>
+        <div class="nav-card-desc">Detailed breakdowns comparing each prospect's minor league stats to Hall of Famers, with ceiling projections and card investment thesis.</div>
+      </div>
+      <div class="nav-card" onclick="showPage('daily')">
+        <div class="nav-card-icon">ID</div>
+        <div class="nav-card-title">Investment Info of The Day</div>
+        <div class="nav-card-desc">A dedicated page for your featured daily baseball card investing spotlight.</div>
+      </div>
+    </div>
+    <div class="disclaimer-box"><strong>Disclaimer:</strong> All information on this site is for educational and entertainment purposes only. Card values are approximate and based on recent eBay sold listings and aggregator data as of April 2026. PSA 10 population counts are estimates. Hall of Fame projections are speculative. This is not financial advice. Card investing carries risk of total loss, particularly for prospect cards.</div>
+  </div>
+</div>
+
+<div id="page-player-shop" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Affiliate Links · Featured Players</div>
+    <h1 class="page-title">Player<br>Shop</h1>
+    <p class="page-subtitle">Direct shopping links for the featured player cards in this guide. Use the research pages first, then jump to live listings here.</p>
+  </div>
+  <div class="content" id="player-shop-content"></div>
+</div>
+
+<div id="page-daily" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Featured Update</div>
+    <h1 class="page-title">Investment Info<br>of The Day</h1>
+    <p class="page-subtitle">Daily spotlight page ready for your featured card-investing update.</p>
+  </div>
+  <div class="content" id="daily-content"></div>
+</div>
+
+<div id="page-past-iiotds" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Archive · Past Spotlights</div>
+    <h1 class="page-title">Past<br>IIOTDs</h1>
+    <p class="page-subtitle">A running archive of previous Investment Info of The Day analysis pages.</p>
+  </div>
+  <div class="content" id="past-iiotds-content"></div>
+</div>
+
+<div id="page-current-tiers" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Investment Tiers · Active & Recent Players</div>
+    <h1 class="page-title">Current player<br>tier rankings</h1>
+    <p class="page-subtitle">19 players across 4 tiers. All values reflect PSA 10 Gem Mint grade. Population counts approximate. WAR and stats updated to reflect accurate end-of-2025 numbers.</p>
+  </div>
+  <div class="content">
+    <div class="page-jump-row">
+      <button class="page-jump-btn" onclick="showPage('current-composite')">Open ROI / composite rankings</button>
+      <button class="page-jump-btn" onclick="showPage('reasoning-current')">Open player analysis</button>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-1-pill">Tier 1</span>
+        <span class="tier-title">Blue chip / near-certain HOF</span>
+        <span class="tier-desc">Locks or near-locks for Cooperstown</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Player</th><th>Card</th><th>WAR</th><th>PSA 10 Pop</th><th>Current (PSA 10)</th><th>Proj. HOF Value</th><th>HOF Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Mike Trout'); return false;" class="player-link">Mike Trout</a></div><div class="psub">Los Angeles Angels · Active</div></td>
+              <td><div class="card-name">2011 Topps Update #US175</div><div class="psub">Highest recognition factor in modern era</div></td>
+              <td><div class="war-val">88.7</div></td>
+              <td><div class="pop-hi">~5,000+</div><div class="psub">Very high</div></td>
+              <td class="price-now">$1,250–$2,000</td>
+              <td class="price-proj">$3,500–$6,500</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Shohei Ohtani'); return false;" class="player-link">Shohei Ohtani</a></div><div class="psub">Los Angeles Dodgers · Active</div></td>
+              <td><div class="card-name">2018 Topps Update #US285</div><div class="psub">Greatest global demand of any modern card</div></td>
+              <td><div class="war-val">52.9</div></td>
+              <td><div class="pop-hi">~12,800</div><div class="psub">High — massive demand offsets pop</div></td>
+              <td class="price-now">$400–$500</td>
+              <td class="price-proj">$3,000–$7,000</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Aaron Judge'); return false;" class="player-link">Aaron Judge</a></div><div class="psub">New York Yankees · Active</div></td>
+              <td><div class="card-name">2017 Topps #287</div><div class="psub">AL HR record holder. Massive NY market</div></td>
+              <td><div class="war-val">63.5</div></td>
+              <td><div class="pop-hi">~6,300</div><div class="psub">High population</div></td>
+              <td class="price-now">$350–$500</td>
+              <td class="price-proj">$2,000–$3,800</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Mookie Betts'); return false;" class="player-link">Mookie Betts</a></div><div class="psub">Los Angeles Dodgers · Active</div></td>
+              <td><div class="card-name">2014 Topps Update #US26</div><div class="psub">MVP, WS rings, Gold Gloves</div></td>
+              <td><div class="war-val">75.3</div></td>
+              <td><div class="pop-hi">~4,500+</div><div class="psub">High — fairly priced</div></td>
+              <td class="price-now">$100–$250</td>
+              <td class="price-proj">$1,200–$2,750</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Bryce Harper'); return false;" class="player-link">Bryce Harper</a></div><div class="psub">Philadelphia Phillies · Active</div></td>
+              <td><div class="card-name">2012 Topps Update #US183</div><div class="psub">2× MVP — most recognized RC of era</div></td>
+              <td><div class="war-val">54.0</div></td>
+              <td><div class="pop-med">~3,800</div><div class="psub">Moderate — decent scarcity</div></td>
+              <td class="price-now">$75–$175</td>
+              <td class="price-proj">$500–$1,250</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-2-pill">Tier 2</span>
+        <span class="tier-title">Strong HOF trajectory — younger players</span>
+        <span class="tier-desc">Very likely or probable Cooperstown; still active</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Player</th><th>Card</th><th>WAR</th><th>PSA 10 Pop</th><th>Current (PSA 10)</th><th>Proj. HOF Value</th><th>HOF Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Juan Soto'); return false;" class="player-link">Juan Soto</a></div><div class="psub">New York Mets · Active</div></td>
+              <td><div class="card-name">2018 Topps Update #US300</div><div class="psub">$765M deal. All-time OBP at 27</div></td>
+              <td><div class="war-val">43.2</div></td>
+              <td><div class="pop-hi">~6,200</div><div class="psub">High — keep watching</div></td>
+              <td class="price-now">$50–$100</td>
+              <td class="price-proj">$900–$2,200</td>
+              <td><span class="badge badge-vlike">Very likely</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Ronald Acuña Jr.'); return false;" class="player-link">Ronald Acuña Jr.</a></div><div class="psub">Atlanta Braves · Active</div></td>
+              <td><div class="card-name">2018 Topps Update #US250</div><div class="psub">First ever 40/70 season</div></td>
+              <td><div class="war-val">28.7</div></td>
+              <td><div class="pop-med">~4,100</div><div class="psub">Moderate — reasonable entry</div></td>
+              <td class="price-now">$80–$120</td>
+              <td class="price-proj">$700–$1,800</td>
+              <td><span class="badge badge-vlike">Very likely</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Yordan Alvarez'); return false;" class="player-link">Yordan Alvarez</a></div><div class="psub">Houston Astros · Active</div></td>
+              <td><div class="card-name">2020 Topps Chrome #200</div><div class="psub">Unanimous AL ROY. Historic slugger</div></td>
+              <td><div class="war-val">25.7</div></td>
+              <td><div class="pop-med">~3,200</div><div class="psub">Moderate — Chrome over base</div></td>
+              <td class="price-now">$60–$90</td>
+              <td class="price-proj">$600–$1,800</td>
+              <td><span class="badge badge-vlike">Very likely</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Fernando Tatis Jr.'); return false;" class="player-link">Fernando Tatis Jr.</a></div><div class="psub">San Diego Padres · Active</div></td>
+              <td><div class="card-name">2019 Topps Chrome #203</div><div class="psub">25 yrs old. PED suspension narrative</div></td>
+              <td><div class="war-val">27.5</div></td>
+              <td><div class="pop-med">~3,500</div><div class="psub">Moderate</div></td>
+              <td class="price-now">$40–$65</td>
+              <td class="price-proj">$500–$1,500</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Vladimir Guerrero Jr.'); return false;" class="player-link">Vladimir Guerrero Jr.</a></div><div class="psub">Toronto Blue Jays · Active</div></td>
+              <td><div class="card-name">2019 Topps Chrome #201</div><div class="psub">Son of HOFer. 62 HR potential</div></td>
+              <td><div class="war-val">26.7</div></td>
+              <td><div class="pop-hi">~8,600</div><div class="psub">High pop — most affordable entry</div></td>
+              <td class="price-now">$70–$120</td>
+              <td class="price-proj">$500–$1,200</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Bobby Witt Jr.'); return false;" class="player-link">Bobby Witt Jr.</a></div><div class="psub">Kansas City Royals · Active</div></td>
+              <td><div class="card-name">2022 Topps Update #US44</div><div class="psub">Best young SS in baseball. Age 24</div></td>
+              <td><div class="war-val">23.1</div></td>
+              <td><div class="pop-med">~2,800</div><div class="psub">Low for modern era</div></td>
+              <td class="price-now">$60–$90</td>
+              <td class="price-proj">$600–$1,500</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Julio Rodriguez'); return false;" class="player-link">Julio Rodriguez</a></div><div class="psub">Seattle Mariners · Active</div></td>
+              <td><div class="card-name">2022 Topps Update #US44 (Base)</div><div class="psub">Flagship base rookie. Lower-cost entry point</div></td>
+              <td><div class="war-val">23.1</div></td>
+              <td><div class="pop-lo">~900</div><div class="psub">Very low — scarcity advantage</div></td>
+              <td class="price-now">$30–$80</td>
+              <td class="price-proj">$125–$350</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-3-pill">Tier 3</span>
+        <span class="tier-title">High upside — longer time horizon</span>
+        <span class="tier-desc">Early career / debut season players</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Player</th><th>Card</th><th>WAR</th><th>PSA 10 Pop</th><th>Current (PSA 10)</th><th>Proj. HOF Value</th><th>HOF Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Paul Skenes'); return false;" class="player-link">Paul Skenes</a></div><div class="psub">Pittsburgh Pirates · Active</div></td>
+              <td><div class="card-name">2024 Topps Update #US100 (Base)</div><div class="psub">Historic debut. Generational ceiling</div></td>
+              <td><div class="war-val">8.2</div></td>
+              <td><div class="pop-med">~2,200</div></td>
+              <td class="price-now">$150–$250</td>
+              <td class="price-proj">$1,000–$3,500+</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Elly De La Cruz'); return false;" class="player-link">Elly De La Cruz</a></div><div class="psub">Cincinnati Reds · Active</div></td>
+              <td><div class="card-name">2024 Topps #141</div><div class="psub">Record 67 SBs. Elite athleticism</div></td>
+              <td><div class="war-val">9.1</div></td>
+              <td><div class="pop-hi">~5,800</div></td>
+              <td class="price-now">$45–$95</td>
+              <td class="price-proj">$1,000–$3,800</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Roman Anthony'); return false;" class="player-link">Roman Anthony</a></div><div class="psub">Boston Red Sox · Active</div></td>
+              <td><div class="card-name">2025 Topps Update #189 (Base)</div><div class="psub">Top prospect. Boston market. Debut season</div></td>
+              <td><div class="war-val">2.1</div></td>
+              <td><div class="pop-lo">~600</div></td>
+              <td class="price-now">$125–$175</td>
+              <td class="price-proj">$1,800–$6,000</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-4-pill">Tier 4</span>
+        <span class="tier-title">Undervalued HOF veterans — buy before induction</span>
+        <span class="tier-desc">Locks or near-locks flying under the radar</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Player</th><th>Card</th><th>WAR</th><th>PSA 10 Pop</th><th>Current (PSA 10)</th><th>Proj. HOF Value</th><th>HOF Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Max Scherzer'); return false;" class="player-link">Max Scherzer</a></div><div class="psub">Recently retired</div></td>
+              <td><div class="card-name">2008 Topps Update #UH280</div><div class="psub">3× Cy Young. Deeply undervalued</div></td>
+              <td><div class="war-val">75.3</div></td>
+              <td><div class="pop-lo">~1,100</div><div class="psub">Low pop = genuine scarcity</div></td>
+              <td class="price-now">$175–$250</td>
+              <td class="price-proj">$500–$1,200</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Miguel Cabrera'); return false;" class="player-link">Miguel Cabrera</a></div><div class="psub">Retired</div></td>
+              <td><div class="card-name">2001 Topps Traded #T40</div><div class="psub">Triple Crown. Last batting titan</div></td>
+              <td><div class="war-val">67.3</div></td>
+              <td><div class="pop-lo">~850</div><div class="psub">Very low. Vintage pricing</div></td>
+              <td class="price-now">$250–$400</td>
+              <td class="price-proj">$1,200–$3,000</td>
+              <td><span class="badge badge-lock">Lock</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Freddie Freeman'); return false;" class="player-link">Freddie Freeman</a></div><div class="psub">Los Angeles Dodgers · Active</div></td>
+              <td><div class="card-name">2011 Topps Update #US145</div><div class="psub">MVP, WS hero. Often overlooked</div></td>
+              <td><div class="war-val">65.1</div></td>
+              <td><div class="pop-lo">~1,400</div><div class="psub">Low for a major star</div></td>
+              <td class="price-now">$100–$200</td>
+              <td class="price-proj">$550–$1,350</td>
+              <td><span class="badge badge-vlike">Very likely</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('José Ramírez'); return false;" class="player-link">José Ramírez</a></div><div class="psub">Cleveland Guardians · Active</div></td>
+              <td><div class="card-name">2014 Topps #424 (Base)</div><div class="psub">Elite 3B. HOF numbers under the radar</div></td>
+              <td><div class="war-val">58.6</div></td>
+              <td><div class="pop-lo">~900</div><div class="psub">Very low — hidden gem</div></td>
+              <td class="price-now">$200–$300</td>
+              <td class="price-proj">$1,000–$2,600</td>
+              <td><span class="badge badge-vlike">Very likely</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="page-current-composite" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Sortable Rankings · Current Players</div>
+    <h1 class="page-title">Current player<br>ROI and composite rankings</h1>
+    <p class="page-subtitle">Separate from the tier page so visitors can focus on sortable value comparisons across entry cost, risk, and long-term upside.</p>
+  </div>
+  <div class="content">
+    <div class="page-jump-row">
+      <button class="page-jump-btn" onclick="showPage('current-tiers')">Back to tier rankings</button>
+      <button class="page-jump-btn" onclick="showPage('reasoning-current')">Open player analysis</button>
+    </div>
+    <div class="sec-label">Value ranking — sortable ROI table</div>
+    <div class="sort-row">
+      <span class="sort-lbl">Sort:</span>
+      <button class="sort-btn active" onclick="sortCurrentTable('composite', this)">Best overall</button>
+      <button class="sort-btn" onclick="sortCurrentTable('roi', this)">Highest ROI</button>
+      <button class="sort-btn" onclick="sortCurrentTable('cost', this)">Lowest cost</button>
+      <button class="sort-btn" onclick="sortCurrentTable('risk', this)">Lowest risk</button>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Player</th><th>Card</th><th>Entry price</th><th>Risk</th><th>Proj. HOF range</th><th>Est. multiple</th></tr></thead>
+        <tbody id="current-roi-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="page-prospects-tiers" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Investment Tiers · Minor League Prospects</div>
+    <h1 class="page-title">Prospect card<br>tier rankings</h1>
+    <p class="page-subtitle">Top MLB prospects ranked by ceiling, minor league performance, HOF comparables, and 1st Bowman Chrome Auto investment potential.</p>
+  </div>
+  <div class="content">
+    <div class="page-jump-row">
+      <button class="page-jump-btn" onclick="showPage('prospects-composite')">Open ROI / composite rankings</button>
+      <button class="page-jump-btn" onclick="showPage('reasoning-prospects')">Open prospect analysis</button>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-1-pill">Tier 1</span>
+        <span class="tier-title">Generational / transcendent upside</span>
+        <span class="tier-desc">Historic minor league production; five-tool ceilings</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Prospect</th><th>Age/Pos</th><th>Key card</th><th>MiLB stats (2025)</th><th>HOF comp</th><th>Card price</th><th>ML Rank</th><th>Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Konnor Griffin'); return false;" class="player-link">Konnor Griffin</a></div><div class="psub">Pittsburgh Pirates · MLB debut 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">19<br>SS/OF</div></td>
+              <td><div class="card-name">2024 Bowman Draft Chrome Auto #CPA-KG</div><div class="psub">PSA 10 pop: ~550</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.333 BA</span><span class="stat-chip">.415 OBP</span><span class="stat-chip">.527 SLG</span><span class="stat-chip">21 HR</span><span class="stat-chip">65 SB</span></div><div class="psub">3 levels. MiLB Player of Year.</div></td>
+              <td><span class="comp-badge">Mike Trout</span><div class="psub">Same .333 MiLB BA, same age, 5 tools</div></td>
+              <td class="price-now">$1,800–$2,200</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#1</td>
+              <td><span class="badge badge-vlike">Very likely</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Kevin McGonigle'); return false;" class="player-link">Kevin McGonigle</a></div><div class="psub">Detroit Tigers · MLB debut 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">21<br>SS/2B</div></td>
+              <td><div class="card-name">2025 Bowman Chrome Auto #CPA-KM</div><div class="psub">PSA 10 pop: ~300</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.305 BA</span><span class="stat-chip">.408 OBP</span><span class="stat-chip">.583 SLG</span><span class="stat-chip">19 HR</span></div><div class="psub">Walks > Ks at every level. .991 OPS.</div></td>
+              <td><span class="comp-badge">Tony Gwynn + power</span><div class="psub">80-grade hit tool per Baseball America</div></td>
+              <td class="price-now">$350–$500</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#2</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-2-pill">Tier 2</span>
+        <span class="tier-title">Elite two-way tools — near-debut or MLB</span>
+        <span class="tier-desc">Ready-soon bats with strong minor league track records</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Prospect</th><th>Age/Pos</th><th>Key card</th><th>MiLB stats (2025)</th><th>HOF comp</th><th>Card price</th><th>ML Rank</th><th>Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('JJ Wetherholt'); return false;" class="player-link">JJ Wetherholt</a></div><div class="psub">St. Louis Cardinals · MLB 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">23<br>SS/2B</div></td>
+              <td><div class="card-name">2025 Bowman Chrome Auto #CPA-JW</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.306 BA</span><span class="stat-chip">.408 OBP</span><span class="stat-chip">.931 OPS</span><span class="stat-chip">17 HR</span><span class="stat-chip">23 SB</span></div></td>
+              <td><span class="comp-badge">Chase Utley</span><div class="psub">Contact/power mid-infield combo</div></td>
+              <td class="price-now">$300–$450</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#5</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Samuel Basallo'); return false;" class="player-link">Samuel Basallo</a></div><div class="psub">Baltimore Orioles · MLB 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">20<br>C/1B</div></td>
+              <td><div class="card-name">2023 Bowman Chrome Auto #CPA-SB</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.270 BA</span><span class="stat-chip">.377 OBP</span><span class="stat-chip">.589 SLG</span><span class="stat-chip">23 HR</span></div><div class="psub">57% hard-hit rate at Triple-A</div></td>
+              <td><span class="comp-badge">Gary Carter + Cabrera bat</span><div class="psub">Power C with elite exit velocities</div></td>
+              <td class="price-now">$180–$280</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#8</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Max Clark'); return false;" class="player-link">Max Clark</a></div><div class="psub">Detroit Tigers · Debut imminent</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">21<br>CF</div></td>
+              <td><div class="card-name">2023 Bowman Draft Chrome Auto #BDC-76</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.271 BA</span><span class="stat-chip">.403 OBP</span><span class="stat-chip">.835 OPS</span><span class="stat-chip">14 HR</span><span class="stat-chip">19 SB</span></div><div class="psub">Walks > Ks. AAA: .382/.476/.559 in 2026.</div></td>
+              <td><span class="comp-badge">Ken Griffey Jr.</span><div class="psub">CF, contact + speed + power profile</div></td>
+              <td class="price-now">$130–$220</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#10</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Walker Jenkins'); return false;" class="player-link">Walker Jenkins</a></div><div class="psub">Minnesota Twins · Triple-A 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">21<br>LF</div></td>
+              <td><div class="card-name">2024 Bowman Chrome Auto #CPA-WJ</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.309 BA</span><span class="stat-chip">.420 OBP</span><span class="stat-chip">.912 OPS</span></div><div class="psub">MiLB Player of Year (Twins). 52 G Double-A.</div></td>
+              <td><span class="comp-badge">Ryan Braun</span><div class="psub">LF, plus hit + power combination</div></td>
+              <td class="price-now">$220–$320</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#14</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Colt Emerson'); return false;" class="player-link">Colt Emerson</a></div><div class="psub">Seattle Mariners · Debut imminent</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">21<br>SS</div></td>
+              <td><div class="card-name">2023 Bowman Draft Chrome Auto</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.285 BA</span><span class="stat-chip">.383 OBP</span><span class="stat-chip">.841 OPS</span><span class="stat-chip">16 HR</span></div><div class="psub">Post-swing-adjustment .920 OPS final 75 G</div></td>
+              <td><span class="comp-badge">Corey Seager</span><div class="psub">LH SS, hit tool + developing power</div></td>
+              <td class="price-now">$100–$180</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#9</td>
+              <td><span class="badge badge-prob">Probable</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-3-pill">Tier 3</span>
+        <span class="tier-title">High ceiling — longer development runway</span>
+        <span class="tier-desc">Big upside but years from MLB</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Prospect</th><th>Age/Pos</th><th>Key card</th><th>MiLB stats / notes</th><th>HOF comp</th><th>Card price</th><th>ML Rank</th><th>Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Jesús Made'); return false;" class="player-link">Jesús Made</a></div><div class="psub">Milwaukee Brewers · Double-A 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">18<br>SS/2B</div></td>
+              <td><div class="card-name">2025 Bowman Chrome Auto #CPA-JM</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.285 BA</span><span class="stat-chip">.392 OBP</span><span class="stat-chip">.792 OPS</span><span class="stat-chip">47 SB</span></div><div class="psub">Double-A at 17. Elite exit velo already.</div></td>
+              <td><span class="comp-badge">Ketel Marte + Ozzie Smith</span><div class="psub">Hit + athleticism, switch hitter</div></td>
+              <td class="price-now">$180–$320</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#3</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Sebastian Walcott'); return false;" class="player-link">Sebastian Walcott</a></div><div class="psub">Texas Rangers · Injured 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">20<br>SS/3B</div></td>
+              <td><div class="card-name">2024 Bowman Chrome Auto</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.255 BA</span><span class="stat-chip">.355 OBP</span><span class="stat-chip">.741 OPS</span><span class="stat-chip">13 HR</span></div><div class="psub">Highest power projection of any prospect</div></td>
+              <td><span class="comp-badge">Alex Rodriguez (power SS)</span><div class="psub">Raw power, still developing hit tool</div></td>
+              <td class="price-now">$130–$250</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#7</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Nolan McLean'); return false;" class="player-link">Nolan McLean</a></div><div class="psub">New York Mets · MLB starter 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">23<br>RHP</div></td>
+              <td><div class="card-name">2024 Bowman Draft Chrome Auto</div></td>
+              <td><div class="psub">2.06 ERA / 57 Ks in 48 MLB IP (2025 debut)</div></td>
+              <td><span class="comp-badge">Jacob deGrom (early)</span><div class="psub">Dominant swing-and-miss, low ERA</div></td>
+              <td class="price-now">$180–$300</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#6</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Eli Willits'); return false;" class="player-link">Eli Willits</a></div><div class="psub">Washington Nationals · Low-A 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">18<br>SS</div></td>
+              <td><div class="card-name">2025 Bowman Chrome Auto #CPA-EW</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.300 BA</span><span class="stat-chip">.397 OBP</span></div><div class="psub">15 games Low-A at 17. Elite polish. #1 pick 2025.</div></td>
+              <td><span class="comp-badge">Derek Jeter</span><div class="psub">SS, elite hit tool, all-around profile</div></td>
+              <td class="price-now">$120–$250</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#13</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-block">
+      <div class="tier-header">
+        <span class="tier-pill tier-4-pill">Tier 4</span>
+        <span class="tier-title">Lottery tickets — moonshot speculations</span>
+        <span class="tier-desc">Very early career; buy cheap and hold long</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Prospect</th><th>Age/Pos</th><th>Key card</th><th>MiLB stats / notes</th><th>HOF comp</th><th>Card price</th><th>ML Rank</th><th>Odds</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Leo De Vries'); return false;" class="player-link">Leo De Vries</a></div><div class="psub">Athletics · Double-A 2026</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">19<br>SS</div></td>
+              <td><div class="card-name">2024 Bowman Chrome Auto</div></td>
+              <td><div class="stat-mini"><span class="stat-chip">.255 BA</span><span class="stat-chip">.321 OBP</span><span class="stat-chip">15 HR</span></div><div class="psub">Headlined Mason Miller trade. High-risk.</div></td>
+              <td><span class="comp-badge">Xander Bogaerts</span></td>
+              <td class="price-now">$90–$160</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#4</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+            <tr>
+              <td><div class="pname"><a href="#" onclick="openPlayerModal('Ethan Holliday'); return false;" class="player-link">Ethan Holliday</a></div><div class="psub">Colorado Rockies · 2025 #4 pick</div></td>
+              <td><div style="font-family:var(--mono);font-size:0.78rem;">19<br>SS</div></td>
+              <td><div class="card-name">2025 Bowman Chrome Auto #CPA-EH</div></td>
+              <td><div class="psub">Near zero pro track record. Son of Matt Holliday. Pure pedigree play.</div></td>
+              <td><span class="comp-badge">Matt Holliday (dad)</span></td>
+              <td class="price-now">$80–$160</td>
+              <td style="font-family:var(--mono);color:var(--gold);">#20</td>
+              <td><span class="badge badge-tbd">TBD</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="page-prospects-composite" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Sortable Rankings · Prospects</div>
+    <h1 class="page-title">Prospect ROI and<br>composite rankings</h1>
+    <p class="page-subtitle">A separate sortable view for prospect buyers who want to compare pure upside, risk, and affordability without the longer tier writeups.</p>
+  </div>
+  <div class="content">
+    <div class="page-jump-row">
+      <button class="page-jump-btn" onclick="showPage('prospects-tiers')">Back to tier rankings</button>
+      <button class="page-jump-btn" onclick="showPage('reasoning-prospects')">Open prospect analysis</button>
+    </div>
+    <div class="sec-label">Prospect ROI ranking — sortable</div>
+    <div class="sort-row">
+      <span class="sort-lbl">Sort:</span>
+      <button class="sort-btn active" onclick="sortProspectTable('composite', this)">Best overall</button>
+      <button class="sort-btn" onclick="sortProspectTable('roi', this)">Highest ROI</button>
+      <button class="sort-btn" onclick="sortProspectTable('cost', this)">Lowest cost</button>
+      <button class="sort-btn" onclick="sortProspectTable('risk', this)">Lowest risk</button>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Prospect</th><th>Card</th><th>Entry price</th><th>Risk</th><th>Proj. range (HOF)</th><th>Est. multiple</th></tr></thead>
+        <tbody id="prospect-roi-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="page-reasoning-current" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Deep Analysis · Current Players</div>
+    <h1 class="page-title">Player-by-player<br>investment analysis</h1>
+    <p class="page-subtitle">HOF case, card market dynamics, risk factors, and best entry points explained for all featured current players.</p>
+  </div>
+  <div class="content">
+    <div id="current-reasons" class="reason-grid"></div>
+  </div>
+</div>
+
+<div id="page-reasoning-prospects" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Deep Analysis · Prospects</div>
+    <h1 class="page-title">Prospect-by-prospect<br>investment thesis</h1>
+    <p class="page-subtitle">Minor league stat comparisons to Hall of Famers, ceiling projections, and card investment case for every prospect on the list.</p>
+  </div>
+  <div class="content">
+    <div id="prospect-reasons" class="reason-grid"></div>
+  </div>
+</div>
+
+<script>
+// ===== NAVIGATION =====
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const activeBtn = document.querySelector(`.nav-btn[data-page="${id}"]`);
+  if (activeBtn) activeBtn.classList.add('active');
+  
+  if (window.innerWidth <= 900) {
+    document.body.classList.add('sidebar-collapsed');
+    document.querySelector('.sidebar-toggle').setAttribute('aria-expanded', 'false');
+  }
+  
+  window.scrollTo(0, 0);
+  updateTopSearchVisibility();
+}
+
+function toggleSidebar() {
+  document.body.classList.toggle('sidebar-collapsed');
+  const toggle = document.querySelector('.sidebar-toggle');
+  const isExpanded = !document.body.classList.contains('sidebar-collapsed');
+  toggle.setAttribute('aria-expanded', String(isExpanded));
+  updateTopSearchVisibility();
+}
+
+// ===== CURRENT PLAYER DATA =====
+const currentPlayers = [
+  { name:'Mike Trout', tier:1, card:'2011 Topps Update #US175', war:88.7, costMid:1625, costLow:1250, costHigh:2000, hofLow:3500, hofHigh:6500, riskScore:3, riskLabel:'Medium', hof:'Lock', pop:'~5,000+', popClass:'pop-hi', affiliateLink:'https://ebay.us/8znDS4',
+    analysis: `Mike Trout is the consensus greatest player of his generation, with 88.7 career WAR that already ranks among the all-time greats at any position. His HOF induction is an absolute certainty. The key investment thesis is timing — his card market has been depressed by injury-shortened seasons since 2020, even with the PSA 10 now sitting closer to $1,250–$2,000. The 2011 Topps Update #US175 remains the most recognized modern baseball card in existence.`,
+    risks: ['Injury narrative has softened his market significantly', 'Very high PSA 10 population (~5,000+) limits scarcity premium', 'HOF induction still 10+ years away — long capital lock-up'],
+    bull: 'If Trout has healthy final seasons and retires on his terms, HOF induction hype could still push this card well beyond $5,000.', comp: 'Ken Griffey Jr. 1989 Upper Deck — similarly iconic, similarly high pop, but still commands premium at HOF.' },
+  { name:'Shohei Ohtani', tier:1, card:'2018 Topps Update #US285', war:52.9, costMid:450, costLow:400, costHigh:500, hofLow:3000, hofHigh:7000, riskScore:2, riskLabel:'Low', hof:'Lock', pop:'~12,800', popClass:'pop-hi', affiliateLink:'https://ebay.us/nEO7M4',
+    analysis: `Ohtani is the most globally demanded active player in any sport. As baseball's first true two-way superstar since Babe Ruth, his HOF case is already sealed. The 2018 Topps Update #US285 sits at a remarkably affordable $400–$500 despite this. The high population (12,800 PSA 10s) is offset by unprecedented global collector demand — Japanese, Korean, and US markets all compete for this card. The $400 entry is one of the best risk-adjusted buys on this entire list.`,
+    risks: ['Population is very large at 12,800 PSA 10s', 'TJ surgery removed him as a pitcher — some narratives see this as diminishing the two-way story', 'Post-Dodgers move created new market dynamics still settling'],
+    bull: 'At HOF induction, Ohtani will generate the largest collector event since Derek Jeter. The global audience makes this different from any prior HOFer. A $5,000–$7,000 PSA 10 is not unrealistic.', comp: 'No direct comp — two-way players are unprecedented in the modern card era.' },
+  { name:'Aaron Judge', tier:1, card:'2017 Topps #287', war:63.5, costMid:425, costLow:350, costHigh:500, hofLow:2000, hofHigh:3800, riskScore:2, riskLabel:'Low', hof:'Lock', pop:'~6,300', popClass:'pop-hi', affiliateLink:'https://ebay.us/kh4r0s',
+    analysis: `Judge's AL single-season home run record (62 HRs in 2022) and consecutive MVP-caliber seasons have cemented his place in Yankees lore. The New York market adds a significant premium to his card values at HOF induction that smaller-market stars simply don't get. His 2017 Topps base RC is now more realistically a $350–$500 PSA 10 card, but the Yankees premium still supports a strong long-term thesis.`,
+    risks: ['Some injury history limits games played total', 'High population of PSA 10s similar to Trout', 'Still active — major performance risk over next decade'],
+    bull: 'Yankees HOFers historically see 3–5× card appreciation at induction. Derek Jeter-like market support is the bull case.', comp: 'Derek Jeter — NY market premium at HOF will be comparable.' },
+  { name:'Mookie Betts', tier:1, card:'2014 Topps Update #US26', war:75.3, costMid:175, costLow:100, costHigh:250, hofLow:1200, hofHigh:2750, riskScore:2, riskLabel:'Low', hof:'Lock', pop:'~4,500+', popClass:'pop-hi', affiliateLink:'https://ebay.us/lnHZlG',
+    analysis: `Betts is still one of the most undervalued cards on this entire list relative to his credentials. 75.3 WAR, an MVP award, multiple WS rings, and Gold Gloves support a much stronger market than many collectors give him credit for. Even with a wider $100–$250 PSA 10 range, his HOF case is as strong as nearly anyone on this list not named Trout or Ohtani.`,
+    risks: ['Lacks single iconic moment to drive casual buyer interest', 'Relatively high population for the card year', 'Wrist injury in 2024 raised some career longevity questions'],
+    bull: 'At the low end of the range, the HOF upside is still excellent. Even the upper end can work if the market finally prices in his résumé.', comp: 'Tony Gwynn — similarly underappreciated while active, but HOF induction created enormous demand surge.' },
+  { name:'Bryce Harper', tier:1, card:'2012 Topps Update #US183', war:54.0, costMid:125, costLow:75, costHigh:175, hofLow:500, hofHigh:1250, riskScore:3, riskLabel:'Medium', hof:'Lock', pop:'~3,800', popClass:'pop-med', affiliateLink:'https://ebay.us/Lgogct',
+    analysis: `Harper's 2× NL MVP, his iconic debut as a "chosen one" prospect, and two WS rings give him generational narrative. The 2012 Topps Update #US183 remains one of the hobby's most recognized rookie cards. With the PSA 10 market closer to $75–$175, the entry point is more flexible than before while still offering plenty of long-term upside.`,
+    risks: ['TJ surgery history raises career longevity concerns', 'Still active — performance risk remains', 'Two MVP awards with multiple lean years between them is a mixed narrative'],
+    bull: 'A third MVP or another WS ring before retirement would dramatically strengthen his HOF case and card prices.', comp: 'Albert Pujols 2001 Topps Traded — similarly "anointed" prospect whose RC now commands substantial premiums.' },
+  { name:'Juan Soto', tier:2, card:'2018 Topps Update #US300', war:43.2, costMid:75, costLow:50, costHigh:100, hofLow:900, hofHigh:2200, riskScore:3, riskLabel:'Medium', hof:'Very likely', pop:'~6,200', popClass:'pop-hi', affiliateLink:'https://ebay.us/S12K2G',
+    analysis: `Soto may be the single best value play on this entire list. At 27 years old with a $765M contract, he has 43.2 WAR and one of the most historically elite plate discipline profiles ever recorded. The 2018 Topps Update #US300 now looks more like a $50–$100 PSA 10 card — still a level that dramatically undervalues his eventual HOF certainty if he stays healthy.`,
+    risks: ['High PSA 10 population at ~6,200', 'Still needs 10+ more healthy seasons to close the HOF case definitively', 'Market can be slow to price in young players before postseason hardware'],
+    bull: 'If Soto wins an MVP or leads the Mets to a WS, this card could appreciate sharply even before HOF induction.', comp: 'Ted Williams\' 1939 Play Ball RC — historically elite OBP, market slow to appreciate, now one of the most sought cards in the hobby.' },
+  { name:'Ronald Acuña Jr.', tier:2, card:'2018 Topps Update #US250', war:28.7, costMid:100, costLow:80, costHigh:120, hofLow:700, hofHigh:1800, riskScore:4, riskLabel:'Medium', hof:'Very likely', pop:'~4,100', popClass:'pop-med', affiliateLink:'https://ebay.us/TA1lZt',
+    analysis: `The first 40/70 season in history (2023) cemented Acuña's status as a generational talent. At $80–$120 for a PSA 10, his card is reasonably priced given the HOF trajectory. The risk is real — he tore his ACL in 2024, his second major knee injury. How he returns from that second ACL surgery will define his career arc and card values.`,
+    risks: ['Second ACL tear in 2024 is a serious concern — repeat injuries can derail careers', 'ACL recoveries at 26+ are notably harder than at 22', 'Population moderate but not low'],
+    bull: 'If fully healthy, Acuña has a realistic shot at 40/40+ multiple times and a 70+ WAR career.', comp: 'Bo Jackson — the risk of recurrent injury killing a generational talent is the cautionary tale here. Ken Griffey Jr. is the bull case comp.' },
+  { name:'Yordan Alvarez', tier:2, card:'2020 Topps Chrome #200', war:25.7, costMid:75, costLow:60, costHigh:90, hofLow:600, hofHigh:1800, riskScore:4, riskLabel:'Medium', hof:'Very likely', pop:'~3,200', popClass:'pop-med', affiliateLink:'https://ebay.us/2JZTli',
+    analysis: `Alvarez is one of the most feared hitters in baseball when healthy, but "when healthy" is doing a lot of work in that sentence. His 2025 was nearly lost to injury, and he has averaged only 103 games per season over his last three years. The DH-only label carries some HOF voter skepticism. However, at $60–$90 for a PSA 10 Chrome RC, the risk-reward is compelling. The 2020 Topps Chrome #200 is preferred over the base Topps for investment purposes.`,
+    risks: ['Averaged 103 games/season over last 3 years — injury is his biggest threat', 'DH-only tag has historical HOF voter resistance', '2025 season was largely lost to hand and ankle injuries'],
+    bull: 'A healthy 2026–2031 with 35–40 HR seasons annually would easily build a bulletproof HOF case and push this card 5–10×.', comp: 'David Ortiz — DH who overcame voter skepticism due to postseason heroics and sustained excellence. Alvarez\'s WS game 6 HR is his own version of that.' },
+  { name:'Fernando Tatis Jr.', tier:2, card:'2019 Topps Chrome #203', war:27.5, costMid:53, costLow:40, costHigh:65, hofLow:500, hofHigh:1500, riskScore:5, riskLabel:'Medium', hof:'Probable', pop:'~3,500', popClass:'pop-med', affiliateLink:'https://ebay.us/HNBEEx',
+    analysis: `Tatis is a buy-low opportunity with significant narrative risk. The 2022 PED suspension damaged his reputation with some voters and collectors. He is only 26, and if he produces HOF-caliber numbers from 2024 onward, the market will forgive and forget. At $40–$65 for a PSA 10, the downside is limited and the upside if he produces a clean 15-year career is very strong.`,
+    risks: ['2022 PED suspension (80 games) creates permanent HOF voter narrative risk', 'Multiple wrist surgeries before age 25', 'Some voters have made clear they will penalize PED users on HOF ballot'],
+    bull: 'At 26, even a Hall of Very Good career would likely push this card higher. A legitimate HOF career still creates major upside.', comp: 'Manny Ramirez — PED suspension did not kill his legacy, but it permanently changed the way some voters viewed his résumé.' },
+  { name:'Vladimir Guerrero Jr.', tier:2, card:'2019 Topps Chrome #201', war:26.7, costMid:95, costLow:70, costHigh:120, hofLow:500, hofHigh:1200, riskScore:5, riskLabel:'Medium', hof:'Probable', pop:'~8,600', popClass:'pop-hi', affiliateLink:'https://ebay.us/f47YTl',
+    analysis: `Vlad Jr. remains one of the more polarizing stars on this page. The bloodlines, market recognition, and raw offensive ceiling are still there, but the hobby has cooled after collectors realized the 2021 breakout alone wasn't enough. The 2019 Topps Chrome #201 remains the cleanest mainstream investment vehicle, but the large PSA 10 population means he needs sustained elite seasons to truly rerate.`,
+    risks: ['Very high PSA 10 population at ~8,600', 'Weight and conditioning concerns have followed him since debut', 'Needs multiple more elite seasons to restore full HOF trajectory'],
+    bull: 'If Vlad stacks several MVP-caliber seasons, the market can rerate quickly because the name recognition is already built in.', comp: '2017 Carlos Correa Topps RC — SS with HOF upside, similarly priced, appreciated 3–5× over career.' },
+  { name:'Julio Rodriguez', tier:2, card:'2022 Topps Update #US44 (Base)', war:23.1, costMid:55, costLow:30, costHigh:80, hofLow:125, hofHigh:350, riskScore:4, riskLabel:'Medium', hof:'Probable', pop:'~900', popClass:'pop-lo', affiliateLink:'https://ebay.us/Ys4RA8',
+    analysis: `Switching to the base 2022 Topps Update #US44 makes Julio a much more accessible long-term bet. Instead of paying an SSP premium, collectors can now enter around $30–$80 for a flagship rookie tied to one of the game's best young center fielders. The lower entry point helps the ROI case, but because this is the base card rather than the Ichiro SSP, the eventual HOF ceiling is lower too.`,
+    risks: ['Rodriguez needs 12–15 more productive seasons to build a HOF case', 'Seattle is still a smaller market with limited national spotlight compared with Yankees/Dodgers stars', 'Base flagship card has less scarcity juice than the SSP alternative'],
+    bull: 'If J-Rod becomes a perennial All-Star and the face of multiple Mariners playoff runs, even the base flagship rookie should appreciate cleanly from these levels.', comp: 'Ichiro\'s mainstream flagship rookie market — broad appeal, strong fan base, but not SSP scarcity-driven.' },
+  { name:'Paul Skenes', tier:3, card:'2024 Topps Update #US100 (Base)', war:8.2, costMid:200, costLow:150, costHigh:250, hofLow:1000, hofHigh:3500, riskScore:6, riskLabel:'High', hof:'Probable', pop:'~2,200', popClass:'pop-med', affiliateLink:'https://ebay.us/ezHymR',
+    analysis: `Skenes' debut was one of the most historically dominant ever for a starting pitcher. His stuff — triple-digit fastball with elite movement — is generational. The risk is that he is a pitcher. Pitching careers are inherently fragile, and even the best arms can be derailed by injury. The base 2024 Topps Update #US100 gives collectors a simpler mainstream entry point than chase variants.`,
+    risks: ['Pitcher risk is real — even Nolan Ryan missed time, Koufax retired at 30', 'Only one full MLB season; sustainability unproven', 'High pop for a first-year player'],
+    bull: 'If Skenes pitches 15 years like Pedro Martinez or Randy Johnson, the flagship rookie can still become a major card. The talent is that special.', comp: 'Pedro Martinez 1993 Topps RC — similarly dominant debut stuff, became one of the greatest ever.' },
+  { name:'Elly De La Cruz', tier:3, card:'2024 Topps #141', war:9.1, costMid:70, costLow:45, costHigh:95, hofLow:1000, hofHigh:3800, riskScore:7, riskLabel:'High', hof:'TBD', pop:'~5,800', popClass:'pop-hi', affiliateLink:'https://ebay.us/HpZ0cq',
+    analysis: `De La Cruz still offers one of the most exciting upside cases on the page, but the market has moved above the ultra-cheap entry point. At about $45–$95 for a PSA 10, you're paying more for the athletic ceiling and hobby buzz. If the power fully arrives, the jump in price can still be justified because the tools are almost unprecedented.`,
+    risks: ['HOF far from certain — very early in career', 'High PSA 10 population at ~5,800 limits scarcity upside', 'Power hasn\'t fully developed yet'],
+    bull: 'If De La Cruz adds 30+ HR power to his elite speed profile, this flagship rookie could rerate dramatically.', comp: 'Rickey Henderson — same "too good to be true" athleticism, though Elly still has much more to prove.' },
+  { name:'Roman Anthony', tier:3, card:'2025 Topps Update #189 (Base)', war:2.1, costMid:150, costLow:125, costHigh:175, hofLow:1800, hofHigh:6000, riskScore:8, riskLabel:'High', hof:'TBD', pop:'~600', popClass:'pop-lo', affiliateLink:'https://ebay.us/ytPZug',
+    analysis: `Anthony is the purest speculative play on this list, but the specific base rookie you wanted is now clearly defined as 2025 Topps Update #189. The Boston market and his prospect pedigree have pushed the PSA 10 closer to $125–$175, which makes this a much pricier speculation than before. Still, the combination of market size, hype, and scarce PSA 10 supply means the upside remains enormous if he actually becomes a star.`,
+    risks: ['Only one partial MLB season — almost no track record', 'Pure speculation — career could go in many directions', 'Boston hype machine has burned collectors before (see: various overhyped Sox prospects)'],
+    bull: 'If Anthony develops into an All-Star in Boston, this specific base rookie can become a very visible flagship card in the hobby.', comp: 'Mookie Betts 2014 Topps Update — bought much earlier and cheaper, but a useful reminder of how Boston flagship rookies can move.' },
+  { name:'Jacob Wilson', tier:3, card:'2025 Topps Series 1 #314', war:4.1, costMid:90, costLow:70, costHigh:110, hofLow:450, hofHigh:1400, riskScore:4, riskLabel:'Medium', hof:'TBD', pop:'~950', popClass:'pop-lo', affiliateLink:'https://ebay.us/hVqp4I',
+    analysis: `Wilson looks like one of the safest young hit-tool bets in the hobby right now. After batting .311 in 125 games as a rookie and quickly becoming a core piece for the Athletics, he profiles as the kind of contact-driven shortstop collectors trust to hold value even when the power output is still developing. His mainstream rookie market is still affordable, which keeps the risk/reward profile attractive for long-term buyers who want a polished young big leaguer instead of a pure tools-based speculation.`,
+    risks: ['Still very early in career, so HOF path is far from proven', 'Hit-over-power profile can limit hobby spikes if counting stats stall', 'Athletics market is smaller than Yankees, Dodgers, or Red Sox stars'],
+    bull: 'If Wilson keeps winning batting-title style attention while staying at shortstop, his rookie cards can rerate quickly because the floor already looks high for his age.', comp: 'Xander Bogaerts with a better pure contact start — polished young shortstop whose value is tied to hit tool, average, and long-term stability.' },
+  { name:'Munetaka Murakami', tier:3, card:'2023 Topps Chrome NPB #195', war:0.0, costMid:110, costLow:75, costHigh:145, hofLow:400, hofHigh:1600, riskScore:6, riskLabel:'High', hof:'TBD', pop:'~1,000', popClass:'pop-med', affiliateLink:'https://ebay.us/INiTea',
+    analysis: `Murakami is one of the biggest international power names in the hobby, and collectors have chased his cards because of the same overseas-superstar upside that helped fuel the Ohtani market. The power is real, but the investment case is more complicated because team context, MLB transition risk, and recent hype have already pushed prices higher. For now, he belongs on the current-player composite as a high-upside but high-risk international power investment rather than a tier-ranking lock.`,
+    risks: ['Card prices have already surged from collector hype', 'MLB transition is still uncertain compared with established stars', 'Team context and market timing could cap short-term upside'],
+    bull: 'If Murakami proves the power translates against MLB pitching, his card market can make another major move because international slugger demand is already built in.', comp: 'Shohei Ohtani hobby effect without the same two-way floor — huge upside, but pricing can run ahead of certainty.' },
+  { name:'Max Scherzer', tier:4, card:'2008 Topps Update #UH280', war:75.3, costMid:213, costLow:175, costHigh:250, hofLow:500, hofHigh:1200, riskScore:1, riskLabel:'Low', hof:'Lock', pop:'~1,100', popClass:'pop-lo', affiliateLink:'https://ebay.us/5HNZ9y',
+    analysis: `Scherzer is the greatest value discrepancy on this entire guide. He has 75.3 career WAR and three Cy Young awards. He is a first-ballot HOF lock. Yet his PSA 10 RC sits at $175–$250 with a population of only ~1,100. For context, unproven prospects have cards that sell for more than this. The hobby has chronically undervalued pitchers relative to position players, creating a genuine opportunity.`,
+    risks: ['Retired — no more performance catalysts until HOF vote (2031–2032 eligibility)', 'Long hold until HOF induction — 5–7 year capital commitment', 'Pitchers historically get less HOF card bump than position players'],
+    bull: 'At ~1,100 PSA 10 copies and a Lock HOF case, even a moderate induction bump still creates attractive upside.', comp: 'Greg Maddux 1987 Donruss RC — a pitcher HOFer whose card was similarly undervalued and saw substantial appreciation at induction.' },
+  { name:'Miguel Cabrera', tier:4, card:'2001 Topps Traded #T40', war:67.3, costMid:325, costLow:250, costHigh:400, hofLow:1200, hofHigh:3000, riskScore:1, riskLabel:'Low', hof:'Lock', pop:'~850', popClass:'pop-lo', affiliateLink:'https://ebay.us/bg0X6u',
+    analysis: `Miggy is a retired first-ballot lock with 67.3 WAR, two MVPs, a Triple Crown, and multiple batting titles. His 2001 Topps Traded card — a vintage-era RC with a very low population of ~850 PSA 10s — now looks more like a $250–$400 card. That is a much healthier market than before, but the scarcity factor and Cooperstown certainty still make the long-term case strong.`,
+    risks: ['Retired — waiting for HOF vote (2029 eligibility with 5-year waiting period)', 'Late-career performance decline may color some voters\' memories', 'Long hold required'],
+    bull: 'At ~850 PSA 10 copies with a Lock HOF case, the scarcity-to-certainty ratio is still excellent. Induction can create another strong leg up.', comp: 'Tony Gwynn 1982 Topps Traded RC — similar vintage-era undervaluation before HOF, appreciated significantly at induction.' },
+  { name:'Freddie Freeman', tier:4, card:'2011 Topps Update #US145', war:65.1, costMid:150, costLow:100, costHigh:200, hofLow:550, hofHigh:1350, riskScore:2, riskLabel:'Low', hof:'Very likely', pop:'~1,400', popClass:'pop-lo', affiliateLink:'https://ebay.us/15srkO',
+    analysis: `Freeman is one of the hobby's most overlooked players. An MVP, World Series credentials, and 65+ WAR support a much stronger market than casual collectors tend to assign him. Even with the PSA 10 closer to $100–$200, he still looks like a solid long-term buy before the full HOF narrative arrives.`,
+    risks: ['Still active — injury or performance drop could change HOF odds', 'Small card market given his relative obscurity with casual collectors', 'Ankle injury in 2024 NLCS was a scare'],
+    bull: 'A HOF induction in the 2030s could still push this card meaningfully above today\'s level, especially if he adds more postseason moments.', comp: 'Mark Grace — similarly beloved but understated first baseman whose cards saw appreciation after career recognition mounted.' },
+  { name:'José Ramírez', tier:4, card:'2014 Topps #424 (Base)', war:58.6, costMid:250, costLow:200, costHigh:300, hofLow:1000, hofHigh:2600, riskScore:2, riskLabel:'Low', hof:'Very likely', pop:'~900', popClass:'pop-lo', affiliateLink:'https://ebay.us/fShbo6',
+    analysis: `José Ramírez is still one of the best résumé-to-attention mismatches in the hobby, but the specific base card you wanted shifts the price discussion higher. Using 2014 Topps #424 (Base), the PSA 10 range looks more like $200–$300 rather than the cheaper update card discussed before. That lowers the pure bargain angle, but his near-60 WAR profile still gives the card a credible long-term HOF case.`,
+    risks: ['Cleveland market keeps him out of the national spotlight', 'No ring and no MVP trophy yet — counting stats matter to some voters', 'Still active — needs several more productive seasons'],
+    bull: 'If José keeps stacking elite seasons and finally gets a bigger October stage, this base rookie can still appreciate well from here.', comp: 'Roberto Alomar — similarly elite Cleveland-area player whose card was underpriced relative to his credentials before full career recognition.' }
+];
+
+const prospectPlayers = [
+  { name:'Konnor Griffin', tier:1, card:'2024 Bowman Draft Chrome Auto #CPA-KG', pop:'~550', costMid:2000, costLow:1800, costHigh:2200, hofLow:8000, hofHigh:25000, riskScore:4, riskLabel:'Medium', comp:'Mike Trout',
+    analysis:`Griffin's 2025 MiLB season stands as one of the greatest prospect debut campaigns in modern history. A .333/.415/.527 slash line across three levels (Low-A, High-A, Double-A) at age 19, with 21 HR and 65 SB, earned him the Baseball America Minor League Player of the Year award. The five-tool profile is genuinely comparable to Mike Trout's own minor league numbers at the same age. Trout hit .342 across his minor league career, and Griffin's .333 at three levels in his debut is nearly identical.`,
+    milb: '.333 BA / .415 OBP / .527 SLG — 21 HR, 65 SB across 3 levels at age 19. MiLB POTY.',
+    hofComp: 'Mike Trout (.342 MiLB BA, same age, same 5-tool unicorn profile)',
+    risks:['$2,000 entry is among highest on this list', 'Already debuted in MLB — success not guaranteed', 'Pirates have historically struggled to develop stars into sustained winners'],
+    bull:'If Griffin becomes Trout-level, this $2K card becomes worth $15,000–$25,000+. The comp and the numbers justify the entry.' },
+  { name:'Kevin McGonigle', tier:1, card:'2025 Bowman Chrome Auto #CPA-KM', pop:'~300', costMid:425, costLow:350, costHigh:500, hofLow:2000, hofHigh:8000, riskScore:3, riskLabel:'Low', comp:'Tony Gwynn + power',
+    analysis:`McGonigle is the most "MLB-ready" bat in the prospect universe. His approach at the plate is already elite — he has never walked less than he's struck out at any professional level, a trait shared by legends like Tony Gwynn and Wade Boggs in their minor league careers. Baseball America gave him an 80-grade hit tool, which is as high as the scale goes. His .305/.408/.583 line in 2025 across three levels (19 HR) with a 1.0+ K/BB ratio is extraordinary.`,
+    milb: '.305 BA / .408 OBP / .583 SLG — 19 HR, walks > Ks at every professional level. .991 OPS.',
+    hofComp: 'Tony Gwynn (80-grade contact, same walk/K ratios in MiLB) with modern power upside',
+    risks:['Not as tooled up as Griffin — lacks the five-tool ceiling', 'May profile as a 2B rather than SS long-term', 'Injury history with hand issues in 2024'],
+    bull:'McGonigle is already in the MLB. If the numbers translate, he could be a perennial All-Star with .300 BA+ for 15 years — a legitimate HOF compiler.' },
+  { name:'JJ Wetherholt', tier:2, card:'2025 Bowman Chrome Auto #CPA-JW', pop:'~400', costMid:375, costLow:300, costHigh:450, hofLow:1500, hofHigh:5000, riskScore:3, riskLabel:'Low', comp:'Chase Utley',
+    analysis:`Wetherholt won the Big 12 Player of the Year at West Virginia after hitting .449 with a 1.304 OPS as a sophomore. His pro career has continued that trend — .306/.408 in Double-A/Triple-A with 17 HR and 23 SB. His profile is most similar to Chase Utley — an elite contact hitter at a middle infield position with above-average power and excellent baserunning. Now in the MLB, Wetherholt has the tools to be a perennial All-Star.`,
+    milb: '.306 BA / .408 OBP / .931 OPS — 17 HR, 23 SB, more walks than strikeouts in Double-A + Triple-A.',
+    hofComp: 'Chase Utley (contact/power mid-infield with excellent approach)',
+    risks:['Has moved off SS — playing 2B/3B in pro ball', 'Power may cap out at 20–25 HR annually', 'Cardinals have a crowded middle infield picture'],
+    bull:'A 15-year career of .290 BA / .380 OBP / 25 HR is very achievable and HOF-borderline. Any MVP or WS ring changes the calculus dramatically.' },
+  { name:'Nick Kurtz', tier:2, card:'2024 Bowman Draft Chrome Auto', pop:'~300', costMid:150, costLow:120, costHigh:180, hofLow:1000, hofHigh:4500, riskScore:4, riskLabel:'Medium', comp:'Jim Thome',
+    analysis:`Kurtz has hit a little bump in performance recently. Going from the 2025 AL ROY, slashing .290/.383/.619 to a lesser .228/.419/.380 currently. His recent slump is why his card has been declining slightly in value, making it the perfect time to BUY a rookie slab. It is hard to see that the former ROY with a 4 HR game will be a bust.`,
+    milb: '2025 AL Rookie of the Year. Elite OBP metrics and power.',
+    hofComp: 'Jim Thome (elite OBP + huge power, but with superior 1B defense)',
+    risks:['Current slump is causing slight market panic', '1B prospect — extremely high offensive bar to reach HOF', 'Athletics park/system may suppress counting stats initially'],
+    bull:'If Kurtz returns to his ROY form and hits 35+ HRs with a .400 OBP annually, he is a perennial All-Star. The current price dip is the perfect entry window.' },
+  { name:'Samuel Basallo', tier:2, card:'2023 Bowman Chrome Auto #CPA-SB', pop:'~250', costMid:230, costLow:180, costHigh:280, hofLow:1500, hofHigh:6000, riskScore:4, riskLabel:'Medium', comp:'Gary Carter + Cabrera bat',
+    analysis:`Basallo is perhaps the most underpriced card on this entire list relative to his ceiling. His 57% hard-hit rate in Triple-A in 2025 would have ranked 5th among all qualified MLB players. He's a 20-year-old catcher who hit 23 homers in Triple-A and signed an 8-year, $67M extension with the Orioles. The concern is pitch recognition — he chased at a 40% clip on fastballs (twice MLB average). But his raw power is legitimately elite.`,
+    milb: '.270 BA / .377 OBP / .589 SLG — 23 HR in Triple-A. 57% hard-hit rate. Age 20.',
+    hofComp: 'Gary Carter (power catcher) with Miguel Cabrera\'s raw bat speed and exit velocity',
+    risks:['Catcher positional risk — catches age hard and injuries are constant', 'Chase rate concern (40% on fastballs) may limit MLB ceiling', 'Defensive development still needed behind the plate'],
+    bull:'A catcher who hits 30+ HR with .270/.360 over 15 years is automatic HOF. Basallo\'s tools make this the ceiling. At $180–$280, it\'s the best cost/ceiling ratio on the prospects list.' },
+  { name:'Max Clark', tier:2, card:'2023 Bowman Draft Chrome Auto #BDC-76', pop:'~350', costMid:175, costLow:130, costHigh:220, hofLow:1200, hofHigh:5000, riskScore:3, riskLabel:'Low', comp:'Ken Griffey Jr.',
+    analysis:`Clark is the CF prospect most scouts compare to a young Ken Griffey Jr. The tools are almost cartoonish — elite bat-to-ball instincts, plus-plus speed, Gold Glove CF defense, and growing power. In 2025, he had more walks than strikeouts at Double-A Erie while hitting .271/.403. In early 2026 at Triple-A, he's hitting .382/.476 with 7 BB vs 7 K in his first 39 PA. The ML debut is imminent.`,
+    milb: '.271 BA / .403 OBP / .835 OPS — 14 HR, 19 SB; walks > Ks throughout. AAA in 2026: .382/.476/.559.',
+    hofComp: 'Ken Griffey Jr. (CF, elite bat-to-ball + speed + power + defense combination)',
+    risks:['Power needs to continue developing — 14 HR at Double-A is not yet elite', 'Griffey comp is very high bar — most players fall short', 'No guaranteed MLB debut timeline'],
+    bull:'If the power develops to 25–30 HR annually, Clark in CF with his other tools becomes a 60+ WAR career candidate and a legitimate HOF trajectory.' },
+  { name:'Walker Jenkins', tier:2, card:'2024 Bowman Chrome Auto #CPA-WJ', pop:'~300', costMid:270, costLow:220, costHigh:320, hofLow:1200, hofHigh:4500, riskScore:4, riskLabel:'Medium', comp:'Ryan Braun',
+    analysis:`Jenkins was the Twins' MiLB Player of the Year after posting .309/.420/.912 OPS in 52 Double-A games. His plus hit tool and improving power project well. The knock is that he profiles as a left fielder — a position that requires more offensive production to reach HOF territory. But his contact skills and approach are reminiscent of Ryan Braun at the same stage.`,
+    milb: '.309 BA / .420 OBP / .912 OPS in Double-A. Named Twins 2025 MiLB POTY.',
+    hofComp: 'Ryan Braun (LF, plus hit + power combination, elite approach)',
+    risks:['Corner OF position requires higher offensive bar for HOF', 'Injury history — missed time in 2025', 'Needs to develop power to 25+ HR annually to reach HOF territory'],
+    bull:'A .300/.380/25 HR LF profile for 15 years builds a very strong HOF case. The bat is legitimately that good.' },
+  { name:'Colt Emerson', tier:2, card:'2023 Bowman Draft Chrome Auto', pop:'~280', costMid:140, costLow:100, costHigh:180, hofLow:1000, hofHigh:4000, riskScore:3, riskLabel:'Low', comp:'Corey Seager',
+    analysis:`Emerson made a critical mechanical adjustment mid-2025 — switching to a toe-tap approach that immediately boosted his power by cutting his ground ball rate by nearly 20%. After the adjustment, he posted a .920 OPS over his final 75 games between Double-A and Triple-A. The Corey Seager comp has been widely cited by scouts — a LH hitter at SS with an advanced hit tool and developing power. He's the cheapest Tier 2 prospect on this list.`,
+    milb: '.285 BA / .383 OBP / .841 OPS — 16 HR post-adjustment. .920 OPS in final 75 games.',
+    hofComp: 'Corey Seager (LH SS, hit tool + developing power, same smooth approach)',
+    risks:['Swing adjustment is recent — sustainability unproven', 'Power ceiling still unclear', 'Defense at SS needs to remain viable'],
+    bull:'At $100–$180, Emerson offers Tier 2 upside at near-Tier 4 pricing. The mechanical adjustment and imminent MLB debut make this exceptional value.' },
+  { name:'Jesús Made', tier:3, card:'2025 Bowman Chrome Auto #CPA-JM', pop:'~350', costMid:250, costLow:180, costHigh:320, hofLow:1500, hofHigh:8000, riskScore:5, riskLabel:'Medium', comp:'Ketel Marte + Ozzie Smith',
+    analysis:`Made is the youngest player on this list and one of the most impressive. He was 17 years old when he reached Double-A last season — an achievement that less than 1% of minor leaguers ever accomplish. His 15% chase rate and 89% contact rate at that age are numbers that belong to elite MLB hitters, not teenagers. The combination of Ozzie Smith athleticism with Ketel Marte's bat approach is the most frequently cited comp.`,
+    milb: '.285 BA / .392 OBP — 47 SB. Double-A at 17. 15% chase rate, 89% contact rate.',
+    hofComp: 'Ketel Marte (bat approach) + Ozzie Smith (athleticism, switch-hitting SS)',
+    risks:['Very long runway to MLB — 3+ years minimum', 'Age-18 stats are exciting but still developmental', 'Brewers have historically been conservative with young international prospects'],
+    bull:'If Made develops as projected, his combination of tools makes him one of the highest-ceiling players in this entire guide. A $250 card on a potential star is excellent value with a long hold horizon.' },
+  { name:'Nolan McLean', tier:3, card:'2024 Bowman Draft Chrome Auto', pop:'~400', costMid:240, costLow:180, costHigh:300, hofLow:1200, hofHigh:5000, riskScore:5, riskLabel:'Medium', comp:'Jacob deGrom (early career)',
+    analysis:`McLean went from a third-round pick to the #1 pitching prospect in baseball after an extraordinary debut. His 2.06 ERA and 57 Ks across 48 MLB innings in 2025 was one of the best debut pitching campaigns ever. The deGrom comparison is not hyperbolic — both were later-drafted players who went from "good prospect" to "ace" in a single breakout season. The risk is that pitching is inherently volatile.`,
+    milb: '2.06 ERA / 57 Ks / 48 IP in MLB debut (2025). Dominated in first 8 big league starts.',
+    hofComp: 'Jacob deGrom early career (dominant debut ERA, elite K rate, unexpected trajectory)',
+    risks:['Pitcher risk — career-ending injuries can come at any time', 'Only one MLB season; sample size is small', 'Delivery has some mechanical quirks that scouts worry about long-term'],
+    bull:'If McLean pitches 15 seasons like deGrom, this card could be worth $3,000–$5,000 at HOF. The debut numbers justify the investment thesis.' },
+  { name:'Sebastian Walcott', tier:3, card:'2024 Bowman Chrome Auto', pop:'~300', costMid:190, costLow:130, costHigh:250, hofLow:800, hofHigh:5000, riskScore:6, riskLabel:'High', comp:'Alex Rodriguez (power SS projection)',
+    analysis:`Walcott missed 2026 with an internal brace surgery on his elbow, making this a buy-low moment. His power projection is the highest of any prospect in baseball — scouts universally project 30-35+ HR annually at peak. The hit tool question has been the persistent concern, but his Double-A stint in 2025 showed real improvement. At $130–$250 with the injury discount, this is a compelling risk/reward.`,
+    milb: '.255 BA / .355 OBP — 13 HR in Double-A at 19. Highest power projection of any prospect.',
+    hofComp: 'Alex Rodriguez (pure SS power projection, raw tools without refinement)',
+    risks:['Elbow surgery in 2026 — recovery timeline uncertain', 'Hit tool is still the legitimate question mark', 'Power hasn\'t fully shown in games yet at any level'],
+    bull:'If the hit tool develops to complement his elite power, Walcott becomes a 40+ HR SS — a combination that would make him one of the most valuable players in baseball.' },
+  { name:'Eli Willits', tier:3, card:'2025 Bowman Chrome Auto #CPA-EW', pop:'~250', costMid:185, costLow:120, costHigh:250, hofLow:800, hofHigh:5000, riskScore:6, riskLabel:'High', comp:'Derek Jeter (SS, hit tool)',
+    analysis:`Willits was the #1 overall pick in the 2025 draft for a reason — his polish as a 17-year-old is genuinely remarkable. The Derek Jeter comparison isn't primarily about tools; it's about approach, instincts, and makeup. Willits' swing at Low-A in his first 15 pro games looked like a 25-year-old veteran. The concern is pure development timeline — he's 18 and in A-ball.`,
+    milb: '.300/.397/.360 — 15 games at Low-A at age 17. Elite polish and approach.',
+    hofComp: 'Derek Jeter (SS, elite hit approach, all-around profile that exceeded tools)',
+    risks:['3–4 years from MLB minimum', 'Very limited pro track record', 'Power has not yet developed — current 0 HR profile is all approach'],
+    bull:'A Jeter comp who develops power becomes one of the game\'s cornerstone SS. The approach at 17 is the best indicator of a high floor.' },
+  { name:'Leo De Vries', tier:4, card:'2024 Bowman Chrome Auto', pop:'~250', costMid:125, costLow:90, costHigh:160, hofLow:500, hofHigh:3000, riskScore:6, riskLabel:'High', comp:'Xander Bogaerts',
+    analysis:`De Vries was the centerpiece of the Mason Miller trade to the Athletics, which raised some eyebrows — the Padres clearly decided his ceiling wasn't worth holding over an elite closer. His .255 BA and uneven hit tool are legitimate concerns. But he's only 19 and showed encouraging power (15 HR at High-A and Double-A). The Bogaerts comp reflects an SS who became a consistent .285/.350/20 HR producer.`,
+    milb: '.255 BA / .321 OBP — 15 HR across High-A and Double-A at 19. Traded in Mason Miller deal.',
+    hofComp: 'Xander Bogaerts (SS, power/approach combo, patient development needed)',
+    risks:['Being traded as the centerpiece of a deal for a reliever raises questions about Padres\' internal valuation', 'Hit tool needs significant development', 'Oakland market limits his national profile'],
+    bull:'If the hit tool develops, his power and SS defense make him a very productive player. $90–$160 entry with a real upside scenario.' },
+  { name:'Ethan Holliday', tier:4, card:'2025 Bowman Chrome Auto #CPA-EH', pop:'~200', costMid:120, costLow:80, costHigh:160, hofLow:400, hofHigh:3500, riskScore:7, riskLabel:'High', comp:'Matt Holliday (father)',
+    analysis:`Holliday is the purest pedigree play on this list. His father Matt Holliday was a 7-time All-Star with 316 career HRs. Ethan was the #4 overall pick in 2025 and has been praised for his polish and advanced approach — but he has almost no professional track record to evaluate. At $80–$160, this is a low-cost option on a high-ceiling player. The Rockies' park will suppress his counting stats unless he gets traded.`,
+    milb: 'Very early career — 2025 #4 overall pick. Polished amateur hitter with elite bloodlines.',
+    hofComp: 'Matt Holliday (father) — LH power hitter with advanced approach and excellent instincts',
+    risks:['Essentially no pro track record', 'Colorado Rockies park suppresses stats significantly', 'Pedigree is not performance — many "son of HOFer" prospects flame out'],
+    bull:'If he reaches his ceiling, a Holliday-level career is absolutely achievable. The bloodlines and approach are real. At $80–$160, the cost of being wrong is minimal.' }
+];
+
+// ===== MODAL / POPUP FUNCTIONALITY =====
+function buildSearchPool() {
+  return [
+    ...currentPlayers.map(p => ({ ...p, category: 'Current Player' })),
+    ...prospectPlayers.map(p => ({ ...p, category: 'Prospect' }))
+  ];
+}
+
+function normalizeSearchTerm(value) {
+  return value.trim().toLowerCase();
+}
+
+
+function currentPlayerShopHTML(player, compact=false) {
+  if (!player || player.category !== 'Current Player' || !player.affiliateLink) return '';
+  const note = player.costLow && player.costHigh
+    ? `Featured card: ${player.card} · PSA 10 guide range: $${player.costLow.toLocaleString()}–$${player.costHigh.toLocaleString()}`
+    : `Featured card: ${player.card}`;
+  return `
+    <div style="margin-top:${compact ? '1rem' : '1.25rem'}; padding:${compact ? '0.9rem' : '1rem 1.1rem'}; border:1px solid var(--border); background:var(--bg3); border-radius:10px;">
+      <div class="rcard-comp-label" style="margin-bottom:0.4rem;">Player shop</div>
+      <div style="color:var(--text2); font-size:${compact ? '0.78rem' : '0.84rem'}; line-height:1.6; margin-bottom:0.75rem;">${note}</div>
+      <a href="${player.affiliateLink}" target="_blank" rel="noopener noreferrer sponsored" class="search-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:0.72rem 1rem;">Shop this card</a>
+    </div>`;
+}
+
+function openPlayerModal(name) {
+  const pool = buildSearchPool();
+  const player = pool.find(p => normalizeSearchTerm(p.name) === normalizeSearchTerm(name));
+  if(!player) return;
+
+  const modal = document.getElementById('player-modal');
+  const content = document.getElementById('player-modal-body');
+
+  let bodyHTML = '';
+  if(player.category === 'Current Player') {
+    bodyHTML = `
+      <div class="rcard" style="border:none; padding:0; background:transparent;">
+        <div class="rcard-header">
+          <div>
+            <div class="rcard-name" style="font-size: 1.5rem; margin-bottom: 5px;">${player.name}</div>
+            <div class="rcard-tier"><span class="tier-pill tier-${player.tier}-pill" style="font-size:0.62rem;padding:3px 8px;">Tier ${player.tier}</span></div>
+          </div>
+          <div style="text-align:right;">
+            <div class="rcard-stat" style="font-size: 1rem;">${player.war} WAR</div>
+            <div style="font-family:var(--mono);font-size:0.8rem;color:var(--text3);margin-top:2px;">$${player.costLow}–$${player.costHigh} PSA 10</div>
+          </div>
+        </div>
+        <div class="rcard-divider" style="margin: 1.25rem 0;"></div>
+        <div class="rcard-body" style="font-size:0.95rem;">
+          <p>${player.analysis}</p>
+          ${player.bull ? `<p style="color:var(--green);font-size:0.85rem; margin-top: 1rem;"><strong>Bull case:</strong> ${player.bull}</p>` : ''}
+          ${player.risks && player.risks.length ? `<div class="risk-row" style="margin-top:1rem;">${player.risks.map(r=>`<span class="risk-tag">${r}</span>`).join('')}</div>` : ''}
+          ${player.comp ? `<div class="rcard-comp" style="margin-top:1.5rem;"><div class="rcard-comp-label">Comp</div><div class="rcard-comp-val">${player.comp}</div></div>` : ''}
+          ${currentPlayerShopHTML(player)}
+        </div>
+      </div>
+    `;
+  } else {
+    bodyHTML = `
+      <div class="rcard" style="border:none; padding:0; background:transparent;">
+        <div class="rcard-header">
+          <div>
+            <div class="rcard-name" style="font-size: 1.5rem; margin-bottom: 5px;">${player.name}</div>
+            <div class="rcard-tier"><span class="tier-pill tier-${player.tier}-pill" style="font-size:0.62rem;padding:3px 8px;">Tier ${player.tier}</span></div>
+          </div>
+          <div style="text-align:right;">
+            <div class="rcard-stat" style="font-size: 0.9rem;">${player.card.split(' ').slice(0,3).join(' ')}</div>
+            <div style="font-family:var(--mono);font-size:0.8rem;color:var(--text3);margin-top:2px;">$${player.costLow}–$${player.costHigh}</div>
+          </div>
+        </div>
+        <div class="rcard-divider" style="margin: 1.25rem 0;"></div>
+        <div class="rcard-body" style="font-size:0.95rem;">
+          <p style="font-family:var(--mono);font-size:0.8rem;color:var(--gold2);margin-bottom:1rem;">${player.milb}</p>
+          <p>${player.analysis}</p>
+          ${player.bull ? `<p style="color:var(--green);font-size:0.85rem; margin-top: 1rem;"><strong>Bull case:</strong> ${player.bull}</p>` : ''}
+          ${player.risks && player.risks.length ? `<div class="risk-row" style="margin-top:1rem;">${player.risks.map(r=>`<span class="risk-tag">${r}</span>`).join('')}</div>` : ''}
+          ${player.hofComp ? `<div class="rcard-comp" style="margin-top:1.5rem;"><div class="rcard-comp-label">Minor league HOF comp</div><div class="rcard-comp-val">${player.hofComp}</div></div>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  content.innerHTML = bodyHTML;
+  modal.classList.add('active');
+}
+
+function closePlayerModal(e) {
+  if (e && e.target !== document.getElementById('player-modal') && e.target.closest('.modal-close') === null) return;
+  document.getElementById('player-modal').classList.remove('active');
+}
+
+// ===== SEARCH =====
+function handleSearch(event, inputId) {
+  event.preventDefault();
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const query = input.value;
+  if (!query.trim()) return;
+
+  const matches = buildSearchPool().filter(player => normalizeSearchTerm(player.name).includes(normalizeSearchTerm(query)));
+  
+  if (matches.length > 0) {
+    openPlayerModal(matches[0].name);
+    input.value = '';
+    input.blur();
+  } else {
+    alert("Player not found. Try searching for a different name.");
+  }
+}
+
+function updateTopSearchVisibility() {
+  if (window.innerWidth <= 900) return;
+  document.body.classList.remove('search-hidden');
+}
+
+// ===== ROI DATA =====
+function calcData(players) {
+  return players.map(p => ({
+    ...p,
+    roiMid: Math.round(10*(p.hofLow+p.hofHigh)/2/p.costMid)/10,
+    composite: (() => {
+      const roiN = Math.min((p.hofLow+p.hofHigh)/2/p.costMid/16,1);
+      const riskN = 1-(p.riskScore-1)/7;
+      const costN = 1-Math.min(p.costMid/2000,1);
+      return roiN*0.4+riskN*0.4+costN*0.2;
+    })()
+  }));
+}
+
+function riskBadge(l) {
+  const cls = l==='Low'?'badge-low':l==='Medium'?'badge-med':'badge-high';
+  return `<span class="badge ${cls}">${l}</span>`;
+}
+
+function barHTML(roi, max=16) {
+  const pct = Math.min(roi/max,1);
+  const color = pct>0.6?'#2ecc8a':pct>0.3?'#f0a84a':'#e05555';
+  return `<div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:${Math.round(pct*100)}%;background:${color};"></div></div><span class="bar-label">${roi}×</span></div>`;
+}
+
+let currentSortKey = 'composite';
+let prospectSortKey = 'composite';
+
+function sortCurrentTable(key, btn) {
+  currentSortKey = key;
+  document.querySelectorAll('#page-current-composite .sort-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCurrentROI();
+}
+function sortProspectTable(key, btn) {
+  prospectSortKey = key;
+  document.querySelectorAll('#page-prospects-composite .sort-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProspectROI();
+}
+
+function renderCurrentROI() {
+  const data = calcData(currentPlayers);
+  let sorted = [...data];
+  if(currentSortKey==='roi') sorted.sort((a,b)=>b.roiMid-a.roiMid);
+  else if(currentSortKey==='cost') sorted.sort((a,b)=>a.costMid-b.costMid);
+  else if(currentSortKey==='risk') sorted.sort((a,b)=>a.riskScore-b.riskScore);
+  else sorted.sort((a,b)=>b.composite-a.composite);
+  const body = document.getElementById('current-roi-body');
+  body.innerHTML = sorted.map((p,i) => `<tr>
+    <td><span style="font-family:var(--mono);font-size:0.85rem;color:var(--text3);">${i+1}</span></td>
+    <td><div class="pname"><a href="#" onclick="openPlayerModal('${p.name}'); return false;" class="player-link">${p.name}</a></div><div class="psub">Tier ${p.tier}</div></td>
+    <td><div class="card-name">${p.card}</div></td>
+    <td class="price-now" style="font-family:var(--mono);font-size:0.8rem;">$${p.costLow.toLocaleString()}–$${p.costHigh.toLocaleString()}</td>
+    <td>${riskBadge(p.riskLabel)}<div class="psub" style="margin-top:3px;">${p.risks?p.risks[0]:''}</div></td>
+    <td class="price-proj" style="font-family:var(--mono);font-size:0.78rem;">$${p.hofLow.toLocaleString()}–$${p.hofHigh.toLocaleString()}</td>
+    <td>${barHTML(p.roiMid)}</td>
+  </tr>`).join('');
+}
+
+function renderProspectROI() {
+  // Filter out players hidden from the ROI rankings (e.g. Nick Kurtz)
+  const data = calcData(prospectPlayers.filter(p => !p.hideFromROI));
+  let sorted = [...data];
+  if(prospectSortKey==='roi') sorted.sort((a,b)=>b.roiMid-a.roiMid);
+  else if(prospectSortKey==='cost') sorted.sort((a,b)=>a.costMid-b.costMid);
+  else if(prospectSortKey==='risk') sorted.sort((a,b)=>a.riskScore-b.riskScore);
+  else sorted.sort((a,b)=>b.composite-a.composite);
+  const body = document.getElementById('prospect-roi-body');
+  body.innerHTML = sorted.map((p,i) => `<tr>
+    <td><span style="font-family:var(--mono);font-size:0.85rem;color:var(--text3);">${i+1}</span></td>
+    <td><div class="pname"><a href="#" onclick="openPlayerModal('${p.name}'); return false;" class="player-link">${p.name}</a></div><div class="psub">Tier ${p.tier}</div></td>
+    <td><div class="card-name">${p.card}</div></td>
+    <td class="price-now" style="font-family:var(--mono);font-size:0.8rem;">$${p.costLow.toLocaleString()}–$${p.costHigh.toLocaleString()}</td>
+    <td>${riskBadge(p.riskLabel)}<div class="psub" style="margin-top:3px;">${p.risks?p.risks[0]:''}</div></td>
+    <td class="price-proj" style="font-family:var(--mono);font-size:0.78rem;">$${p.hofLow.toLocaleString()}–$${p.hofHigh.toLocaleString()}</td>
+    <td>${barHTML(p.roiMid,20)}</td>
+  </tr>`).join('');
+}
+
+// ===== REASONING CARDS =====
+function renderCurrentReasons() {
+  const container = document.getElementById('current-reasons');
+  const tierColors = { 1:'tier-1-pill', 2:'tier-2-pill', 3:'tier-3-pill', 4:'tier-4-pill' };
+  const tierLabels = { 1:'Tier 1 — Blue chip', 2:'Tier 2 — Strong HOF trajectory', 3:'Tier 3 — High upside', 4:'Tier 4 — Undervalued veteran' };
+  container.innerHTML = currentPlayers.map(p => `
+    <div class="rcard">
+      <div class="rcard-header">
+        <div>
+          <div class="rcard-name"><a href="#" onclick="openPlayerModal('${p.name}'); return false;" class="player-link">${p.name}</a></div>
+          <div class="rcard-tier"><span class="tier-pill ${tierColors[p.tier]}" style="font-size:0.62rem;padding:2px 7px;">${tierLabels[p.tier]}</span></div>
+        </div>
+        <div style="text-align:right;">
+          <div class="rcard-stat">${p.war} WAR</div>
+          <div style="font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin-top:2px;">$${p.costLow}–$${p.costHigh} PSA 10</div>
+        </div>
+      </div>
+      <div class="rcard-divider"></div>
+      <div class="rcard-body">
+        <p>${p.analysis}</p>
+        ${p.bull ? `<p style="color:var(--green);font-size:0.8rem;"><strong>Bull case:</strong> ${p.bull}</p>` : ''}
+        ${p.risks && p.risks.length ? `<div class="risk-row">${p.risks.map(r=>`<span class="risk-tag">${r}</span>`).join('')}</div>` : ''}
+        ${p.comp ? `<div class="rcard-comp"><div class="rcard-comp-label">Comp</div><div class="rcard-comp-val">${p.comp}</div></div>` : ''}
+        ${currentPlayerShopHTML({ ...p, category: 'Current Player' }, true)}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderProspectReasons() {
+  const container = document.getElementById('prospect-reasons');
+  const tierColors = { 1:'tier-1-pill', 2:'tier-2-pill', 3:'tier-3-pill', 4:'tier-4-pill' };
+  const tierLabels = { 1:'Tier 1 — Generational', 2:'Tier 2 — Elite tools', 3:'Tier 3 — High ceiling', 4:'Tier 4 — Lottery ticket' };
+  container.innerHTML = prospectPlayers.map(p => `
+    <div class="rcard">
+      <div class="rcard-header">
+        <div>
+          <div class="rcard-name"><a href="#" onclick="openPlayerModal('${p.name}'); return false;" class="player-link">${p.name}</a></div>
+          <div class="rcard-tier"><span class="tier-pill ${tierColors[p.tier]}" style="font-size:0.62rem;padding:2px 7px;">${tierLabels[p.tier]}</span></div>
+        </div>
+        <div style="text-align:right;">
+          <div class="rcard-stat">${p.card.split(' ').slice(0,3).join(' ')}</div>
+          <div style="font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin-top:2px;">$${p.costLow}–$${p.costHigh}</div>
+        </div>
+      </div>
+      <div class="rcard-divider"></div>
+      <div class="rcard-body">
+        <p style="font-family:var(--mono);font-size:0.72rem;color:var(--gold2);margin-bottom:0.5rem;">${p.milb}</p>
+        <p>${p.analysis}</p>
+        ${p.bull ? `<p style="color:var(--green);font-size:0.8rem;"><strong>Bull case:</strong> ${p.bull}</p>` : ''}
+        ${p.risks && p.risks.length ? `<div class="risk-row">${p.risks.map(r=>`<span class="risk-tag">${r}</span>`).join('')}</div>` : ''}
+        ${p.hofComp ? `<div class="rcard-comp"><div class="rcard-comp-label">Minor league HOF comp</div><div class="rcard-comp-val">${p.hofComp}</div></div>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+
+function renderPlayerShop() {
+  const c = document.getElementById('player-shop-content');
+  const players = currentPlayers.filter(p => p.affiliateLink);
+  c.innerHTML = `
+    <div class="reason-grid">
+      ${players.map(p => `
+        <div class="rcard">
+          <div class="rcard-header">
+            <div>
+              <div class="rcard-name"><a href="#" onclick="openPlayerModal('${p.name}'); return false;" class="player-link">${p.name}</a></div>
+              <div class="rcard-tier"><span class="tier-pill tier-${p.tier}-pill" style="font-size:0.62rem;padding:2px 7px;">Tier ${p.tier}</span></div>
+            </div>
+            <div style="text-align:right;">
+              <div class="rcard-stat">${p.war} WAR</div>
+              <div style="font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin-top:2px;">$${p.costLow.toLocaleString()}–$${p.costHigh.toLocaleString()} PSA 10</div>
+            </div>
+          </div>
+          <div class="rcard-divider"></div>
+          <div class="rcard-body">
+            <p style="font-family:var(--mono);font-size:0.78rem;color:var(--gold2);margin-bottom:0.5rem;">${p.card}</p>
+            <p>${p.analysis}</p>
+            ${currentPlayerShopHTML({ ...p, category: 'Current Player' })}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+
+// ===== PAST IIOTDS =====
+function renderPastIIOTDs() {
+  const c = document.getElementById('past-iiotds-content');
+  if (!c) return;
+
+  const pastPlayers = [
+    {
+      name: 'Nick Kurtz',
+      type: 'Prospect',
+      subtitle: 'Past IIOTD · 1B · Athletics',
+      cardTitle: '2024 Bowman Draft Chrome Auto',
+      priceLine: '$120–$180',
+      verdict: 'BUY',
+      verdictClass: 'badge-vlike',
+      shopLink: null
+    },
+    {
+      name: 'Jacob Wilson',
+      type: 'Current Player',
+      subtitle: 'Past IIOTD · SS · Athletics',
+      cardTitle: '2025 Topps Series 1 #314',
+      priceLine: '$70–$110 PSA 10',
+      verdict: 'BUY / HOLD',
+      verdictClass: 'badge-vlike',
+      shopLink: 'https://ebay.us/hVqp4I'
+    }
+  ];
+
+  c.innerHTML = `
+    <div class="reason-grid">
+      ${pastPlayers.map(item => {
+        const source = item.type === 'Current Player'
+          ? currentPlayers.find(p => p.name === item.name)
+          : prospectPlayers.find(p => p.name === item.name);
+        const analysis = source ? source.analysis : '';
+        const risks = source && source.risks ? source.risks : [];
+        const bull = source && source.bull ? source.bull : '';
+        const compLabel = item.type === 'Current Player' ? 'Comp' : 'Minor league HOF comp';
+        const compValue = item.type === 'Current Player' ? (source && source.comp ? source.comp : '') : (source && source.hofComp ? source.hofComp : '');
+        return `
+          <div class="rcard" style="border-color: rgba(201,168,76,0.28);">
+            <div class="rcard-header">
+              <div>
+                <div class="rcard-name"><a href="#" onclick="openPlayerModal('${item.name}'); return false;" class="player-link">${item.name}</a></div>
+                <div class="rcard-tier">${item.subtitle}</div>
+              </div>
+              <div style="text-align:right;">
+                <span class="badge ${item.verdictClass}">${item.verdict}</span>
+                <div style="font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin-top:6px;">${item.priceLine}</div>
+              </div>
+            </div>
+            <div class="rcard-divider"></div>
+            <div class="rcard-body">
+              <p style="font-family:var(--mono);font-size:0.78rem;color:var(--gold2);margin-bottom:0.5rem;">${item.cardTitle}</p>
+              <p>${analysis}</p>
+              ${bull ? `<p style="color:var(--green);font-size:0.8rem;"><strong>Bull case:</strong> ${bull}</p>` : ''}
+              ${risks.length ? `<div class="risk-row">${risks.map(r=>`<span class="risk-tag">${r}</span>`).join('')}</div>` : ''}
+              ${compValue ? `<div class="rcard-comp"><div class="rcard-comp-label">${compLabel}</div><div class="rcard-comp-val">${compValue}</div></div>` : ''}
+              <div style="margin-top:1.25rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <button class="search-btn" type="button" onclick="openPlayerModal('${item.name}')">Open Full Analysis</button>
+                ${item.shopLink ? `<a href="${item.shopLink}" target="_blank" rel="noopener noreferrer sponsored" class="search-btn" style="display:inline-flex;align-items:center;justify-content:center;">Shop Card</a>` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+// ===== INVESTMENT INFO OF THE DAY =====
+function renderDaily() {
+  const c = document.getElementById('daily-content');
+  const dailyPlayers = [
+    {
+      name: 'Yordan Alvarez',
+      subtitle: '28 Years Old | DH/LF | Houston Astros',
+      why: `Yordan has had a great year so far, making his card prices increase a tad. Despite this increase, Alvarez is still a BUY immediately card because of his high chance to make MVP this year. If he makes MVP, his prices will soar probably to the highest they've been, giving buyers a great short-term investment. Even if he doesn't make MVP, he still has a chance to make the HOF if he keeps up his dominance at the plate, making his cards good for long term investment as well. It's a win-win in the short and long run.`,
+      riskBadge: 'badge-med',
+      riskLabel: 'Medium',
+      verdict: 'BUY IMMEDIATELY',
+      verdictColor: 'var(--green)',
+      whyVerdict: `Yordan has short-term MVP upside and long-term Hall of Fame upside. His market has moved some, but not enough for the kind of season-changing catalyst an MVP run could create.`,
+      cardRows: [
+        ['Base Rookie Card', '$25 - $45'],
+        ['Topps Chrome Rookie', '$60 - $90'],
+        ['Rookie Auto', '$250 - $450']
+      ],
+      marketNote: 'Base is the cheapest entry, Chrome is the cleaner mainstream PSA 10 play, and the auto is the premium bet for buyers who believe the MVP/HOF case keeps building.',
+      shopText: 'Shop Yordan Alvarez',
+      shopLink: 'https://ebay.us/2JZTli'
+    },
+    {
+      name: 'Munetaka Murakami',
+      subtitle: '26 Years Old | 1B/3B | International Power Bat',
+      why: `Murakami's cards have been very popular in the collector's market recently, making his card prices soar. Although he has shown he "has power," him being on a notoriously bad team hurts his case. He is definitely a player you want to keep track of but for now, let the Ohtani effect pass. Murakami is a HOLD/TRADE.`,
+      riskBadge: 'badge-high',
+      riskLabel: 'High',
+      verdict: 'HOLD / TRADE',
+      verdictColor: 'var(--amber)',
+      whyVerdict: `Murakami is exciting, but recent hype has already raised prices. He is worth tracking closely, but this is not the cleanest buy window if collectors are still paying the Ohtani-effect premium.`,
+      cardRows: [
+        ['Base Card', '$45 - $85'],
+        ['Chrome Card', '$75 - $145'],
+        ['Auto Card', '$225 - $400']
+      ],
+      marketNote: 'Base is the lower-risk tracking option, Chrome is the better mainstream upside card, and the auto is only for buyers who are comfortable with higher international-transition risk.',
+      shopText: 'Shop Munetaka Murakami',
+      shopLink: 'https://ebay.us/INiTea'
+    }
+  ];
+
+  c.innerHTML = `
+    <div class="hero-alert" style="margin-bottom:1.5rem;"><strong>Friday Frenzy</strong> 2-player Investment Info of The Day</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1.5rem;">
+      ${dailyPlayers.map(player => `
+        <div class="rcard" style="padding: 2.5rem; border-color: var(--gold); background: var(--bg2);">
+          <h2 style="font-family: var(--serif); color: var(--gold); margin-bottom: 0.5rem; font-size: 2.5rem;">${player.name}</h2>
+          <div style="font-family: var(--mono); color: var(--text2); font-size: 0.9rem; margin-bottom: 2rem; letter-spacing: 0.05em; text-transform: uppercase;">${player.subtitle}</div>
+
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+            <div>
+              <h3 style="color: var(--text); font-size: 1.25rem; margin-bottom: 1rem; font-family: var(--serif);">Why He's An Investment Target</h3>
+              <p style="color: var(--text2); font-size: 0.98rem; line-height: 1.85;">${player.why}</p>
+              <div style="margin-top: 1.5rem; background: var(--bg3); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="margin-bottom: 0.5rem;"><strong style="color: var(--text);">Risk Factor:</strong> <span class="badge ${player.riskBadge}">${player.riskLabel}</span></div>
+                <div style="margin-bottom: 0.75rem;"><strong style="color: var(--text);">Investment Verdict:</strong> <span style="color: ${player.verdictColor}; font-weight: bold; letter-spacing: 0.05em; font-size: 1.1rem;">${player.verdict}</span></div>
+                <p style="color: var(--text2); font-size: 0.88rem; line-height: 1.65; margin: 0; padding-top: 0.5rem; border-top: 1px solid var(--border);">
+                  <strong>Why ${player.verdict}?</strong> ${player.whyVerdict}
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div style="background: var(--bg3); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border);">
+                <h3 style="color: var(--gold2); font-size: 0.9rem; margin-bottom: 1.25rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em;">Card Market Insights (PSA 10)</h3>
+                <ul style="list-style: none; padding: 0; margin: 0; color: var(--text2); font-size: 0.95rem; display: flex; flex-direction: column; gap: 1rem;">
+                  ${player.cardRows.map((row, idx) => `
+                    <li style="display: flex; justify-content: space-between; ${idx < player.cardRows.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''} padding-bottom: 0.75rem; gap: 1rem;">
+                      <span>${row[0]}</span>
+                      <span style="color: var(--gold); font-family: var(--mono); text-align: right;">${row[1]}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+                <p style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--text2); line-height: 1.6;">${player.marketNote}</p>
+                <div style="margin-top: 1.25rem;">
+                  <a href="${player.shopLink}" target="_blank" rel="noopener noreferrer sponsored" class="search-btn" style="display:inline-flex; align-items:center; justify-content:center; width:100%; padding:0.85rem 1rem;">${player.shopText}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; text-align: center; border-top: 1px solid var(--border); padding-top: 1.5rem; display:flex; gap:0.9rem; justify-content:center; flex-wrap:wrap;">
+            <button style="background: rgba(201,168,76,0.1); color: var(--gold2); border: 1px solid rgba(201,168,76,0.3); padding: 0.85rem 2rem; border-radius: 999px; cursor: pointer; transition: all 0.2s; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;" onclick="openPlayerModal('${player.name}')" onmouseover="this.style.background='rgba(201,168,76,0.2)';" onmouseout="this.style.background='rgba(201,168,76,0.1)';">
+              Open Full Player Analysis
+            </button>
+            <button style="background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border2); padding: 0.85rem 2rem; border-radius: 999px; cursor: pointer; transition: all 0.2s; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;" onclick="showPage('player-shop')" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='rgba(255,255,255,0.06)';">
+              Open Player Shop
+            </button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// ===== INIT =====
+renderCurrentROI();
+renderProspectROI();
+renderCurrentReasons();
+renderProspectReasons();
+renderPlayerShop();
+renderDaily();
+renderPastIIOTDs();
+updateTopSearchVisibility();
+window.addEventListener('scroll', updateTopSearchVisibility, { passive: true });
+</script>
+</body>
+</html>
